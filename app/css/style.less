@@ -36,6 +36,11 @@
   margin-top: -(@section-size/2);
   width: @section-size * @section-ratio;
 
+  @media @mediaSmall {
+    top: 20%;
+    left: 30%;
+  }
+
   .logo{
     .bg();
     background-image: url(../img/logo.png);
@@ -55,19 +60,83 @@
     margin-top: -@ico;
     border-radius: 50%;
     opacity: 0;
+    .trans( all 0.35s );
+
+    &:before,
+    &::before {
+      content: ' ';
+      height: @ico * 5;
+      width: @ico * 5;
+      border: 1px solid rgba(75, 75, 75, 0);
+      border-radius: 50%;
+      display: block;
+      margin-left: -31px;
+      margin-top: -29px;
+      .trans( all 0.55s );
+    }
+
+    &:hover{
+      .scale(1.15);
+      .clickable();
+
+      &:before,
+      &::before {
+        border-color: rgba(75, 75, 75, 1);
+      }
+
+    }
+
+    &:active {
+      &:before,
+      &::before {
+        height: @ico * 2.5;
+        margin-left: -12px;
+        margin-top: -13px;
+        width: @ico * 2.5;
+      }
+    }
+
   }
 
 }
 
 #icon1{
-   background-image: url(http://i.imgur.com/kDjx7WV.png);
+   background-image: url(../img/icon-1.png);
 }
 #icon2{
-   background-image: url(http://i.imgur.com/HT9UDal.png);
+   background-image: url(../img/icon-2.png);
 }
 #icon3{
-   background-image: url(http://i.imgur.com/F3Xm0tS.png);
+   background-image: url(../img/icon-3.png);
 }
+
+.nav {
+  position: absolute;
+  top: 52%; left: 70%;
+  font-size: 13px;
+  font-weight: 300;
+
+  .nav-item {
+    .clickable();
+    .trans( color 0.4s );
+
+    &:hover{
+      color: #ed1c24;
+    }
+
+    &:first-child {
+      &:after,
+      &::after {
+        content: '/';
+        padding-left: 5px;
+      }
+    }
+
+
+  }
+}
+
+
 
 
 
@@ -89,4 +158,18 @@
 }
 
 
+
+
+/* Resume section shit */
+
+.resume {
+  .pa4;
+  .resume-header {
+    font-size: 42px;
+    letter-spacing: -2px;
+    font-weight: 300;
+  }
+
+
+}
 
