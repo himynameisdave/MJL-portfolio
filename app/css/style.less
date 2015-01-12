@@ -1,4 +1,92 @@
 @import "../lib/css/lesslie.less";
+// @import (reference) "../lib/css/lesslie.less";
+
+
+@section-size: 250px;
+@section-ratio: 1.589873;
+@ico: 15px;
+
+@mediaSmall: ~"screen and (max-width: 580px)";
+
+.bg(){
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.main-height {
+  height: 400%;
+  width: 100%;
+}
+
+.section {
+  position: fixed;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+
+}
+
+.section-contain {
+  height: @section-size;
+  position: absolute;
+  left: 50%; top: 50%;
+  margin-left: -((@section-size * @section-ratio)/ 2);
+  margin-top: -(@section-size/2);
+  width: @section-size * @section-ratio;
+
+  .logo{
+    .bg();
+    background-image: url(../img/logo.png);
+    margin: (@section-size * 0.15) auto;
+    height: @section-size * 0.7;
+    width: (@section-size * @section-ratio) * 0.7;
+    opacity: 0;
+  }
+
+  .icon {
+    .bg();
+    width: @ico;
+    height: @ico;
+    position: absolute;
+    top:50%; left: 50%;
+    margin-left: -@ico;
+    margin-top: -@ico;
+    border-radius: 50%;
+    opacity: 0;
+  }
+
+}
+
+#icon1{
+   background-image: url(http://i.imgur.com/kDjx7WV.png);
+}
+#icon2{
+   background-image: url(http://i.imgur.com/HT9UDal.png);
+}
+#icon3{
+   background-image: url(http://i.imgur.com/F3Xm0tS.png);
+}
+
+
+
+@media @mediaSmall {
+  @section-size: 175px;
+
+  .section-contain {
+    height: @section-size;
+    margin-left: -((@section-size * @section-ratio)/ 2);
+    margin-top: -(@section-size/2);
+    width: @section-size * @section-ratio;
+    .logo{
+      margin: (@section-size * 0.15) auto;
+      height: @section-size * 0.7;
+      width: (@section-size * @section-ratio) * 0.7;
+    }
+  }
+
+}
 
 
 

@@ -1,7 +1,7 @@
 {
-  "name": "MJL Portfolio",
+  "name": "MJL-Porfolio",
   "version": "0.0.1",
-  "description": "Portfolio site of Toronto-based Designer Miguel Lovery",
+  "description": "Portfolio of Toronto based designer Miguel Lovery.",
   "dependencies": {},
   "devDependencies": {
     "lesslie": "~1.0.5",

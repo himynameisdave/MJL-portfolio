@@ -38,7 +38,7 @@ gulp.task( 'reload-me', function(){
   plug.livereload.listen()
   gulp.watch( 'app/css/*.less', ['compile-me'] );
   gulp.watch( ['app/css/*.css', 'app/js/*.js', 'app/index.html', 'app/partials/*.html' ], function(){
-    loggit("Reloading your page, ma'am!")
+    loggit("I've reloaded your page, ma'am!\n    "+timePlz());
   })
   .on('change', plug.livereload.changed);
 });
@@ -88,12 +88,14 @@ gulp.task( 'annotate-me',  function(){
 gulp.task( 'js-me', ['annotate-me'], function(){
 
   return  gulp.src([
-                  'app/lib/jquery.js',
-                  'app/lib/TweenMax.min.js',
-                  'app/lib/TimelineMax.js',
-                  'app/lib/CSSPlugin.js',
-                  'app/lib/EasePack.js',
-                  'app/lib/angular.js',
+                  'app/lib/js/angular.js',
+                  'app/lib/js/angular-ui-router.js',
+                  'app/lib/js/jquery.js',
+                  'app/lib/js/TweenMax.min.js',
+                  'app/lib/js/TimelineMax.js',
+                  'app/lib/js/CSSPlugin.js',
+                  'app/lib/js/EasePack.js',
+                  'app/lib/js/svg-line.js',
                   'app/js/*.js' ])
           .pipe( plug.concat('scripts.js') )
           .pipe( gulp.dest( 'tmp/js' ) )
@@ -112,6 +114,10 @@ gulp.task( 'assets-me', function(){
     .pipe( gulp.dest('build/partials/') );
   //  IMAGES
   gulp.src( 'app/img/*' )
+    .pipe(plug.imagemin({
+      progressive: true,
+      optimizationLevel: 5
+    }))
     .pipe( gulp.dest('build/img/') );
   //  Favicon move
   gulp.src( 'app/favicon.ico' )
@@ -178,4 +184,37 @@ function errorLog(er){
   console.log( chalk.red( log )  );
 }
 
+function timePlz(){
 
+  var D  = new Date(),
+      h  = D.getHours(),
+      m  = D.getMinutes(),
+      s  = D.getSeconds(),
+      dt = D.getDate(),
+      yr = D.getFullYear(),
+      months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      mt = months[D.getMonth()];
+
+      //  convert to 12 hour time
+      if(h > 12){ h = h - 12 };
+      if(h === 0){ h = 12 };
+
+      //  in case seconds is lower than 10
+      if( s < 10 ){ s = '0' + s }
+
+      return mt + ' ' + dt + ', ' + yr + ' at ' + h + ':' + m + ':' + s;
+
+}
