@@ -2,12 +2,11 @@
 <html ng-app="app">
 <head>
 
-	<title>MJL-Portfolio</title>
+	<title>Miguel Lovery | Toronto Based Designer + Photographer</title>
 	<meta charset="UTF-8">
 
 	<meta name="description" content="Portfolio of Toronto-based designer Miguel Lovery">
-	<meta name="keywords" content="">
-	<meta name="author" content="">
+	<meta name="keywords" content="design, graphic design, Toronto, Toronto design, portfolio, UI design, print, digital photography, photographer, graphic, user experience, user interface design, designer, for hire, freelance">
 
 	<!--Mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,15 +24,16 @@
 <!-- endbuild -->
 
 </head>
-<body ng-controller="Controller">
+<body ng-controller="Main">
 
+	<nav class="nav" ng-include="'partials/nav.html'" ng-class="{ 'nav-invincible': isHome}"></nav>
 
-
-
-	<!-- Unicorn Flight Happens Here -->
-
-
-
+	<main class="main">
+		<section class="main-section" ng-include="'partials/home.html'"></section>
+		<section class="main-section" ng-include="'partials/logo.html'"></section>
+		<section class="main-section" ng-include="'partials/print.html'"></section>
+		<section class="main-section" ng-include="'partials/web.html'"></section>
+	</main>
 
 </body>
 </html>
