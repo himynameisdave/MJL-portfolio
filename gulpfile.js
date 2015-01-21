@@ -11,10 +11,13 @@
 /***********************************************
 **               Require Stuff                **
 ************************************************/
-var gulp   = require('gulp'),
-    chalk  = require('chalk'),
-    del    = require('del'),
-    plug   = require('gulp-load-plugins')({
+var gulp    = require('gulp'),
+    connect = require('connect'),
+    chalk   = require('chalk'),
+    del     = require('del'),
+    dirlist = require('dirlist'),
+    glob    = require('glob'),
+    plug    = require('gulp-load-plugins')({
               scope: ['devDependencies'],
               replaceString: 'gulp-',
             }),
@@ -27,7 +30,7 @@ var gulp   = require('gulp'),
 /***********************************************
 **          Default Task (dev/watch)          **
 ************************************************/
-gulp.task( 'default', ['reload-me']);
+gulp.task( 'default', [ 'serve-me', 'reload-me' ]);
 
 
 
@@ -35,10 +38,13 @@ gulp.task( 'default', ['reload-me']);
 **          Development/Watch Task            **
 ************************************************/
 gulp.task( 'reload-me', function(){
-  plug.livereload.listen()
+
   gulp.watch( 'app/css/*.less', ['compile-me'] );
+  gulp.watch( 'app/js/*.js', ['validate-js'] );
+
+  plug.livereload.listen();
   gulp.watch( ['app/css/*.css', 'app/js/*.js', 'app/index.html', 'app/partials/*.html' ], function(){
-    loggit("I've reloaded your page, ma'am!\n    "+timePlz());
+    loggit("I've reloaded your page, sir!\n    "+timePlz());
   })
   .on('change', plug.livereload.changed);
 });
@@ -46,10 +52,53 @@ gulp.task( 'reload-me', function(){
 
 
 /***********************************************
+**               Server Task                  **
+************************************************/
+gulp.task( 'serve-me', function(){
+
+  var base = __dirname,
+      host = "localhost",
+      port = 6969;
+
+  connect(  connect.favicon(),
+          dirlist(base),
+          connect.static(base) ).listen(port, host);
+  loggit('Server running at http://'+host+':'+port+'/');
+
+});
+
+
+/***********************************************
+**              Validation Task               **
+************************************************/
+gulp.task( 'validate-me', [ 'validate-js', 'validate-css' ]);
+
+
+//  VALIDATION JS
+gulp.task( 'validate-js', function(){
+
+  return gulp.src('app/js/*.js')
+          .pipe(plug.jshint())
+          .pipe(plug.jshint.reporter('default'));
+
+});
+//  VALIDATION CSS
+gulp.task( 'validate-css', function(){
+
+  return gulp.src('app/css/*.css')
+          .pipe(plug.csslint())
+          .pipe(plug.csslint.reporter(CSSReport));
+
+});
+
+
+/***********************************************
 **                   build                    **
 ************************************************/
 
-gulp.task( 'build', [ 'compile-me', 'css-me', 'annotate-me', 'js-me', 'assets-me', 'html-me', 'clean-me' ]);
+
+gulp.task( 'build', [ 'compile-me', 'css-me', 'annotate-me', 'partials-me','js-me', 'assets-me', 'html-me', 'clean-me', 'uncss-me' ]);
+
 
 //  LESS compile
 gulp.task( 'compile-me', function(){
@@ -71,12 +120,21 @@ gulp.task( 'css-me', ['compile-me'], function(){
                       cascade: false
                     }))
             .pipe( plug.csscomb() )
-            .pipe( plug.minifyCss() )
             .pipe( gulp.dest( 'build/css/' ) );
 
 });
+gulp.task( 'uncss-me', ['css-me', 'partials-me', 'html-me'], function(){
+
+  return gulp.src('build/css/styles.css')
+          .pipe(plug.uncss({
+            html: glob.sync('build/**/*.html')
+          }))
+          .pipe( plug.minifyCss() )
+          .pipe(gulp.dest('build/css/'));
+});
 
 //  JSTASKS
+
 gulp.task( 'annotate-me',  function(){
 
   return  gulp.src( 'app/js/app.js' )
@@ -90,12 +148,10 @@ gulp.task( 'js-me', ['annotate-me'], function(){
   return  gulp.src([
                   'app/lib/js/angular.js',
                   'app/lib/js/angular-ui-router.js',
-                  'app/lib/js/jquery.js',
-                  'app/lib/js/TweenMax.min.js',
+                  'app/lib/js/TweenMax.js',
                   'app/lib/js/TimelineMax.js',
-                  'app/lib/js/CSSPlugin.js',
-                  'app/lib/js/EasePack.js',
-                  'app/lib/js/svg-line.js',
+                  'app/lib/js/CSSRulePlugin.js',
+                  'app/lib/js/ScrollToPlugin.js',
                   'app/js/*.js' ])
           .pipe( plug.concat('scripts.js') )
           .pipe( gulp.dest( 'tmp/js' ) )
@@ -108,10 +164,6 @@ gulp.task( 'js-me', ['annotate-me'], function(){
 //MOVE ASSETS
 gulp.task( 'assets-me', function(){
 
-//  PARTIALS
-  gulp.src( 'app/partials/*' )
-    .pipe(plug.angularHtmlify())
-    .pipe( gulp.dest('build/partials/') );
   //  IMAGES
   gulp.src( 'app/img/*' )
     .pipe(plug.imagemin({
@@ -123,26 +175,33 @@ gulp.task( 'assets-me', function(){
   gulp.src( 'app/favicon.ico' )
     .pipe( gulp.dest('build/favicon.ico') );
 
-})
+});
+
+gulp.task( 'partials-me', function(){
+
+  return gulp.src( 'app/partials/*' )
+          .pipe(plug.angularHtmlify())
+          .pipe( gulp.dest('build/partials/') );
+
+});
 
 //HTMLMOVE/REPLACE
 gulp.task( 'html-me', function(){
 
   return gulp.src( 'app/index.html' )
-              .pipe(plug.angularHtmlify())
-              .pipe(plug.htmlReplace({
-                css: {
-                  src: 'css/styles.css',
-                  tpl: '  <link rel="stylesheet" type="text/css" href="%s" />'
-                },
-                js: {
-                  src: 'js/scripts.js',
-                  tpl: '  <script type="text/javascript" src="%s"></script>'
-                }
-            }))
-            .pipe(gulp.dest( 'build/' ));
+          .pipe(plug.angularHtmlify())
+          .pipe(plug.htmlReplace({
+              css: {
+                src: 'css/styles.css',
+                tpl: '  <link rel="stylesheet" type="text/css" href="%s" />'
+              },
+              js: {
+                src: 'js/scripts.js',
+                tpl: '  <script type="text/javascript" src="%s"></script>'
+              }
+          }))
+          .pipe(gulp.dest( 'build/' ));
 });
-
 
 gulp.task( 'clean-me', [ 'css-me', 'js-me' ], function(){
 
@@ -150,7 +209,7 @@ gulp.task( 'clean-me', [ 'css-me', 'js-me' ], function(){
   del( ['tmp/**','tmp'] , function (err, deletedFiles) {
     deletedFiles.forEach( function( val, index ){
         dels +=  '  - '+val+'\n';
-    })
+    });
     loggit(dels);
   });
 
@@ -162,14 +221,13 @@ gulp.task( 'clean-me', [ 'css-me', 'js-me' ], function(){
 **          Utility/Logging Functions         **
 **   Nothing (gulp) to see here, move along   **
 ************************************************/
-function loggit(l){
+var loggit = function (l){
   var log = "*****************************************\n"+
-            " - "+l+"\n"+
-            "*****************************************\n"
+            l+"\n"+
+            "*****************************************\n";
   console.log( chalk.cyan(log) );
-}
-
-function errorLog(er){
+},
+errorLog = function (er){
   var log = "*****************************************\n"+
             "**          CATASTROPHIC ERROR!        **\n"+
             "**                                     **\n"+
@@ -177,14 +235,14 @@ function errorLog(er){
             "**     program in the manner it was    **\n"+
             "**          intended to be used!       **\n"+
             "**                                     **\n"+
-            "              ERROR MESSAGE:             \n"+
-            " - "+er+"\n"+
+            "**            ERROR MESSAGE:           **\n"+
+            "**                                     **\n"+
+            er+"\n"+
             "*****************************************\n";
 
   console.log( chalk.red( log )  );
-}
-
-function timePlz(){
+},
+timePlz = function(){
 
   var D  = new Date(),
       h  = D.getHours(),
@@ -209,12 +267,34 @@ function timePlz(){
       mt = months[D.getMonth()];
 
       //  convert to 12 hour time
-      if(h > 12){ h = h - 12 };
-      if(h === 0){ h = 12 };
+      if(h > 12){ h = h - 12; }
+      if(h === 0){ h = 12; }
 
       //  in case seconds is lower than 10
-      if( s < 10 ){ s = '0' + s }
+      if( s < 10 ){ s = '0' + s; }
 
       return mt + ' ' + dt + ', ' + yr + ' at ' + h + ':' + m + ':' + s;
 
-}
+},
+CSSReport = function(file) {
+
+  var ers = file.csslint.errorCount+' errors in '+file.path+'\n';
+
+  file.csslint.results.forEach(function(result) {
+
+    var col = 'yellow';
+    if( result.error.type === "error" ){
+      col = "red";
+    }
+
+    if(result.error.line !== undefined){
+      ers += chalk.underline[col]('LINE '+result.error.line+':') + ' ' +result.error.message + "\n";
+    }else{
+      ers += chalk.underline.green('GENERAL:') + ' ' + result.error.message + "\n";
+    }
+
+  });
+
+  loggit(ers);
+
+};
