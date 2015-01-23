@@ -1029,9 +1029,9 @@ a:hover {
 }
 .nav .nav-section .nav-button:hover {
   opacity: 0.95;
-  -ms-transform: scale(1.15);
-  -webkit-transform: scale(1.15);
-  transform: scale(1.15);
+  -ms-transform: scale(1.125);
+  -webkit-transform: scale(1.125);
+  transform: scale(1.125);
 }
 .nav .nav-section .nav-button.nav-print {
   background-image: url('../img/icon-print.svg');
@@ -1041,6 +1041,9 @@ a:hover {
 }
 .nav .nav-section .nav-button.nav-digital {
   background-image: url('../img/icon-digital.svg');
+}
+.nav .nav-section .nav-button.nav-invincible {
+  opacity: 0;
 }
 .nav.nav-invincible {
   opacity: 0;
