@@ -30,7 +30,7 @@ app.controller('Main', ["$scope", "$state", function ($scope, $state) {
   //  get to the top right quick
   runTheJewels(0.001, 0);
 
-  $scope.isHome = checkIsHome();
+  $scope.isHome = true;
 
   $scope.setupScrollListener = function(){
 
