@@ -15,12 +15,39 @@
     width: 33.33332%;
 
     .nav-button {
-      .mauto;
       .appearance-none();
+      .mauto;
+      .trans( all 0.35s );
+      background: 0;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: contain;
       border: 0; padding: 0;
       display: block;
       height: 100%;
       width: 20px; // 50px - 20px padding on .nav
+
+      opacity: 0.35;
+      &:hover {
+        opacity: 0.95;
+        .scale(1.15);
+      }
+
+      &.nav-print {
+        background-image: url('../img/icon-print.svg');
+      }
+      &.nav-logo {
+        background-image: url('../img/icon-logo.svg');
+      }
+      &.nav-digital {
+        background-image: url('../img/icon-digital.svg');
+      }
+      
+      .nav-invincible {
+
+      }
+
+
     }
   }
 
@@ -40,22 +67,26 @@
   width: 100%;
   z-index: 800;
 
-  .main-section{
-    height: 25%;
-    width: 100%;
-    text-align: center;
 
-    .vert-center{
-      .ib;
-      .fullheight;
-    }
-    .mjl-module {
-      .ib;
-      background: blue;
-      height: 150px;
-      width: 33.33332%;
-    }
+}
+.main-section{
+  height: 25%;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px dotted blue;
 
+
+  .vert-center{
+    .ib; .fullheight;
+  }
+  .mjl-module {
+    .ib;
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-image: url('../img/logo.svg');
+    height: 150px;
+    width: 33.33332%;
   }
 
 }

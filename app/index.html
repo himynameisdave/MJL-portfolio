@@ -26,13 +26,13 @@
 </head>
 <body ng-controller="Main">
 
-	<nav class="nav" ng-include="'partials/nav.html'" ng-class="{ 'nav-invincible': isHome}"></nav>
+	<nav class="nav" ng-include="'partials/nav.html'"></nav>
 
 	<main class="main">
-		<section class="main-section" ng-include="'partials/home.html'"></section>
-		<section class="main-section" ng-include="'partials/logo.html'"></section>
-		<section class="main-section" ng-include="'partials/print.html'"></section>
-		<section class="main-section" ng-include="'partials/web.html'"></section>
+		<section class="main-section" id="home" ng-include="'partials/home.html'"></section>
+		<section class="main-section" id="logo" ng-include="'partials/logo.html'"></section>
+		<section class="main-section" id="print" ng-include="'partials/print.html'"></section>
+		<section class="main-section" id="web" ng-include="'partials/web.html'"></section>
 	</main>
 
 </body>

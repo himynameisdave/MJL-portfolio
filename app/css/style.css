@@ -1007,16 +1007,40 @@ a:hover {
   width: 33.33332%;
 }
 .nav .nav-section .nav-button {
-  margin-left: auto;
-  margin-right: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
+  background: 0;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
   border: 0;
   padding: 0;
   display: block;
   height: 100%;
   width: 20px;
+  opacity: 0.35;
+}
+.nav .nav-section .nav-button:hover {
+  opacity: 0.95;
+  -ms-transform: scale(1.15);
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+}
+.nav .nav-section .nav-button.nav-print {
+  background-image: url('../img/icon-print.svg');
+}
+.nav .nav-section .nav-button.nav-logo {
+  background-image: url('../img/icon-logo.svg');
+}
+.nav .nav-section .nav-button.nav-digital {
+  background-image: url('../img/icon-digital.svg');
 }
 .nav.nav-invincible {
   opacity: 0;
@@ -1030,20 +1054,24 @@ a:hover {
   width: 100%;
   z-index: 800;
 }
-.main .main-section {
+.main-section {
   height: 25%;
   width: 100%;
   text-align: center;
+  border-bottom: 1px dotted blue;
 }
-.main .main-section .vert-center {
+.main-section .vert-center {
   display: inline-block;
   vertical-align: middle;
   height: 100%;
 }
-.main .main-section .mjl-module {
+.main-section .mjl-module {
   display: inline-block;
   vertical-align: middle;
-  background: blue;
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url('../img/logo.svg');
   height: 150px;
   width: 33.33332%;
 }
