@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html data-ng-app="app">
+<head>
+
+	<title>Miguel Lovery | Toronto Based Designer + Photographer</title>
+	<meta charset="UTF-8">
+
+	<meta name="description" content="Portfolio of Toronto-based designer Miguel Lovery">
+	<meta name="keywords" content="design, graphic design, Toronto, Toronto design, portfolio, UI design, print, digital photography, photographer, graphic, user experience, user interface design, designer, for hire, freelance">
+
+	<!--Mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  <script type="text/javascript" src="js/scripts.js"></script>
+
+</head>
+<body data-ng-controller="Main">
+
+	<nav class="nav" data-ng-include="'partials/nav.html'"></nav>
+
+	<main class="main">
+		<section class="main-section" id="home" data-ng-include="'partials/home.html'"></section>
+		<section class="main-section" id="logo" data-ng-include="'partials/logo.html'"></section>
+		<section class="main-section" id="print" data-ng-include="'partials/print.html'"></section>
+		<section class="main-section" id="web" data-ng-include="'partials/web.html'"></section>
+	</main>
+
+</body>
+</html>
