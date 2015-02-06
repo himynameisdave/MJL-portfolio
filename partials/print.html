@@ -1,4 +1,19 @@
 <div class="vert-center"></div>
 <div class="mjl-module">
-  <h4>Print</h4>
+  <h2 class="section-title">Print</h2>
+  <nav class="nav-sub nav-sub-print">
+    <ul class="nav-sub-list">
+      <li   class="nav-sub-list-item"
+            data-ng-repeat="project in siteData.logo.projects"
+            data-ng-class="{
+              'top-center'   : $index==0,
+              'top-right'    : $index==1,
+              'bottom-right' : $index==2,
+              'bottom-center': $index==3,
+              'bottom-left'  : $index==4,
+              'top-left'     : $index==5
+            }">
+      </li>
+    </ul>
+  </nav>
 </div>
