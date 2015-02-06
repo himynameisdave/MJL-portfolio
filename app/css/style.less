@@ -1,6 +1,6 @@
 @import "../lib/css/lesslie.less";
 
-.nav {
+.nav-top {
   height: 50px;
   padding: 15px 0;
   width: 100%;
@@ -9,12 +9,12 @@
   top: 0; left: 0;
   z-index: 900;
 
-  .nav-section {
+  .nav-top-section {
     height: 100%;
     float: left;
     width: 33.33332%;
 
-    .nav-button {
+    .nav-top-button {
       .appearance-none();
       .mauto;
       .trans( all 0.35s );
@@ -33,17 +33,17 @@
         .scale(1.125);
       }
 
-      &.nav-print {
+      &.nav-top-print {
         background-image: url('../img/icon-print.svg');
       }
-      &.nav-logo {
+      &.nav-top-logo {
         background-image: url('../img/icon-logo.svg');
       }
-      &.nav-digital {
+      &.nav-top-digital {
         background-image: url('../img/icon-digital.svg');
       }
 
-      &.nav-invincible {
+      &.nav-top-invincible {
         opacity: 0;
       }
 
@@ -55,7 +55,6 @@
     opacity: 0;
   }
 }
-
 
 
 
@@ -75,18 +74,107 @@
   text-align: center;
   border-bottom: 1px dotted blue;
 
-
   .vert-center{
     .ib; .fullheight;
   }
+
+}
+
+.mjl-module {
+  .ib;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url('../img/logo-faded.svg');
+  background-size: 25%;
+  height: 150px;
+  // width: 33.33332%;
+  width: 243px;
+
+  /**
+    * TODO MAJOR:
+    *
+    * Make breakpoints based on this things width
+    * then set the positions & sizes of the logo & sub nav items accordinly
+   **/
+
+
+}
+.main-section:first-child{
   .mjl-module {
-    .ib;
-    background-size: contain;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
     background-image: url('../img/logo.svg');
-    height: 150px;
-    width: 33.33332%;
+    background-size: contain;
+  }
+}
+
+
+.section-title {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
+}
+
+.nav-sub {
+  width: 100%;
+  height: 100%;
+  margin: 0; padding: 0;
+
+  .nav-sub-list {
+    margin: 0; padding: 0;
+    position: relative;
+    .nav-sub-list-item {
+      .clickable();
+      @subSize: 140px;
+
+      border-radius: 100%;
+      border: 1px solid @offBlack;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+      height: @subSize;
+      width: @subSize;
+      margin-left: -@subSize/2;
+      position: absolute;
+
+      .trans(all 0.525s ease-out);
+
+      &:hover{
+        .scale(0.925);
+      }
+      &:active {
+        .scale(1.025);
+      }
+
+      &.top-center {
+        left: 50%;
+        top: -@subSize;
+      }
+      &.top-right{
+        top: -(@subSize/2);
+        left: 100%;
+      }
+
+      &.bottom-right{
+        top: (@subSize/2);
+        left: 100%;
+      }
+      &.bottom-center {
+        left: 50%;
+        top: @subSize;
+      }
+
+      &.bottom-left{
+        top: (@subSize/2);
+        left: 0;
+      }
+      &.top-left{
+        top: -(@subSize/2);
+        left: 0;
+      }
+
+    }
   }
 
 }
+

@@ -25,13 +25,36 @@ app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $ur
 
 
 //	MAIN CONTROLLER
-app.controller('Main', ["$scope", "$state", function ($scope, $state) {
+app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $http) {
+
+  ///////////////////////////////
+  //   GET DATA FROM MODEL
+  //////////////////////////////
+
+  //  Don't forget it's async
+  $http.get('./data.json').
+    success(function(data, status, headers, config) {
+       $scope.siteData = data.sections;
+    }).
+    error(function(data, status, headers, config) {
+      throw data;
+    });
+
+  /////////////////////////////
+  //   BUSINESS LOGIC
+  /////////////////////////////
 
   //  get to the top right quick
-  runTheJewels(0.001, 0);
+  // runTheJewels(0.001, 0);
 
   $scope.isHome = true;
+  var delay = 500;//TODO: use this.
 
+
+  /////////////////////////////
+  //   SCROLL LOGIC
+  /////////////////////////////
+  //  TODO: This shit needs to be outside of the contoller.
   $scope.setupScrollListener = function(){
 
     var doneScrollAbout = false;
@@ -40,7 +63,6 @@ app.controller('Main', ["$scope", "$state", function ($scope, $state) {
 
       $scope.isHome = checkIsHome();
       $scope.$apply();
-      // console.log($scope.isHome);
 
       //throttler
       if( Math.round(window.scrollY) % 5 === 0 ){
@@ -88,11 +110,15 @@ app.controller('Main', ["$scope", "$state", function ($scope, $state) {
                     if(i !== 0){
                       // console.log('scrolling back up');
                       runTheJewels(1.5, sections[i-1].posInDoc);
+                      setTimeout(function(){
                        doneScrollAbout = false;
+                      }, 1500);
                     }else{
                       var homePos = document.getElementById('home').getBoundingClientRect().top + document.body.scrollTop;
                       runTheJewels(1.5, homePos);
-                      doneScrollAbout = false;
+                      setTimeout(function(){
+                        doneScrollAbout = false;
+                      }, 1500);
                     }
                   }, 1250);
                 }
@@ -109,6 +135,11 @@ app.controller('Main', ["$scope", "$state", function ($scope, $state) {
   };
 
   $scope.setupScrollListener();
+
+
+
+
+
 
 }]);
 

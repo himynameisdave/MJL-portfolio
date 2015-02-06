@@ -97,7 +97,7 @@ gulp.task( 'validate-css', function(){
 ************************************************/
 
 
-gulp.task( 'build', [ 'compile-me', 'css-me', 'annotate-me', 'partials-me','js-me', 'assets-me', 'html-me', 'clean-me', 'uncss-me' ]);
+gulp.task( 'build', [ 'compile-me', 'css-me', 'annotate-me', 'partials-me','js-me', 'assets-me', 'html-me', 'clean-me' ]);
 
 
 //  LESS compile
@@ -120,18 +120,19 @@ gulp.task( 'css-me', ['compile-me'], function(){
                       cascade: false
                     }))
             .pipe( plug.csscomb() )
+            .pipe( plug.minifyCss() )
             .pipe( gulp.dest( 'build/css/' ) );
 
 });
-gulp.task( 'uncss-me', ['css-me', 'partials-me', 'html-me'], function(){
+// gulp.task( 'uncss-me', ['css-me', 'partials-me', 'html-me'], function(){
 
-  return gulp.src('build/css/styles.css')
-          .pipe(plug.uncss({
-            html: glob.sync('build/**/*.html')
-          }))
-          .pipe( plug.minifyCss() )
-          .pipe(gulp.dest('build/css/'));
-});
+//   return gulp.src('build/css/styles.css')
+//           .pipe(plug.uncss({
+//             html: glob.sync('build/**/*.html')
+//           }))
+//           .pipe( plug.minifyCss() )
+//           .pipe(gulp.dest('build/css/'));
+// });
 
 //  JSTASKS
 
@@ -165,7 +166,7 @@ gulp.task( 'js-me', ['annotate-me'], function(){
 gulp.task( 'assets-me', function(){
 
   //  IMAGES
-  gulp.src( 'app/img/*' )
+  gulp.src( 'app/img/**/*' )
     .pipe(plug.imagemin({
       progressive: true,
       optimizationLevel: 5
@@ -173,7 +174,11 @@ gulp.task( 'assets-me', function(){
     .pipe( gulp.dest('build/img/') );
   //  Favicon move
   gulp.src( 'app/favicon.ico' )
-    .pipe( gulp.dest('build/favicon.ico') );
+    .pipe( gulp.dest('build/') );
+
+  //  data file move
+  gulp.src( 'app/data.json' )
+    .pipe( gulp.dest('build/') );
 
 });
 

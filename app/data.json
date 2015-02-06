@@ -1,0 +1,73 @@
+{
+  "sections": {
+    "logo" : {
+      "projects": [
+        {
+          "title" : "Aquila Private School",
+          "thumb" : "img/thumbs/logos/logo-aquila.png"
+        },{
+          "title" : "PI (something)",
+          "thumb" : "img/thumbs/logos/logo-PI.png"
+        },{
+          "title" : "5Touch Marketing",
+          "thumb" : "img/thumbs/logos/logo-5Touch.png"
+        },{
+          "title" : "FitnessScan",
+          "thumb" : "img/thumbs/logos/logo-fs.png"
+        },{
+          "title" : "Flowers (something)",
+          "thumb" : "img/thumbs/logos/logo-flowers.png"
+        },{
+          "title" : "Lovery + Lunny",
+          "thumb" : "img/thumbs/logos/logo-l+l.png"
+        }
+      ]
+    },
+    "print" : {
+      "projects": [
+        {
+          "title" : "Personal SD Card Package",
+          "thumb" : "img/thumbs/print"
+        },{
+          "title" : "Windsor Salt Package",
+          "thumb" : "img/thumbs/print"
+        },{
+          "title" : "Umbra Annual Report",
+          "thumb" : "img/thumbs/print"
+        },{
+          "title" : "The Great Pyramid of Giza Book Sleeve",
+          "thumb" : "img/thumbs/print"
+        },{
+          "title" : "5Touch Marketing (?)",
+          "thumb" : "img/thumbs/print"
+        },{
+          "title" : "CN Annual Report",
+          "thumb" : "img/thumbs/print"
+        }
+      ]
+    },
+    "web" : {
+      "projects": [
+        {
+          "title" : "",
+          "thumb" : "img/thumbs/web"
+        },{
+          "title" : "",
+          "thumb" : "img/thumbs/web"
+        },{
+          "title" : "",
+          "thumb" : "img/thumbs/web"
+        },{
+          "title" : "",
+          "thumb" : "img/thumbs/web"
+        },{
+          "title" : "",
+          "thumb" : "img/thumbs/web"
+        },{
+          "title" : "",
+          "thumb" : "img/thumbs/web"
+        }
+      ]
+    }
+  }
+}

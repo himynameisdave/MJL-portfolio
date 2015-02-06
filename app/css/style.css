@@ -992,7 +992,7 @@ a:hover {
 .textarea:focus {
   outline: none;
 }
-.nav {
+.nav-top {
   height: 50px;
   padding: 15px 0;
   width: 100%;
@@ -1001,12 +1001,12 @@ a:hover {
   left: 0;
   z-index: 900;
 }
-.nav .nav-section {
+.nav-top .nav-top-section {
   height: 100%;
   float: left;
   width: 33.33332%;
 }
-.nav .nav-section .nav-button {
+.nav-top .nav-top-section .nav-top-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1027,25 +1027,25 @@ a:hover {
   width: 20px;
   opacity: 0.35;
 }
-.nav .nav-section .nav-button:hover {
+.nav-top .nav-top-section .nav-top-button:hover {
   opacity: 0.95;
   -ms-transform: scale(1.125);
   -webkit-transform: scale(1.125);
   transform: scale(1.125);
 }
-.nav .nav-section .nav-button.nav-print {
+.nav-top .nav-top-section .nav-top-button.nav-top-print {
   background-image: url('../img/icon-print.svg');
 }
-.nav .nav-section .nav-button.nav-logo {
+.nav-top .nav-top-section .nav-top-button.nav-top-logo {
   background-image: url('../img/icon-logo.svg');
 }
-.nav .nav-section .nav-button.nav-digital {
+.nav-top .nav-top-section .nav-top-button.nav-top-digital {
   background-image: url('../img/icon-digital.svg');
 }
-.nav .nav-section .nav-button.nav-invincible {
+.nav-top .nav-top-section .nav-top-button.nav-top-invincible {
   opacity: 0;
 }
-.nav.nav-invincible {
+.nav-top.nav-invincible {
   opacity: 0;
 }
 .main {
@@ -1068,13 +1068,100 @@ a:hover {
   vertical-align: middle;
   height: 100%;
 }
-.main-section .mjl-module {
+.mjl-module {
   display: inline-block;
   vertical-align: middle;
-  background-size: contain;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-image: url('../img/logo.svg');
+  background-image: url('../img/logo-faded.svg');
+  background-size: 25%;
   height: 150px;
-  width: 33.33332%;
+  width: 243px;
+  /**
+    * TODO MAJOR:
+    *
+    * Make breakpoints based on this things width
+    * then set the positions & sizes of the logo & sub nav items accordinly
+   **/
+}
+.main-section:first-child .mjl-module {
+  background-image: url('../img/logo.svg');
+  background-size: contain;
+}
+.section-title {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+.nav-sub {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.nav-sub .nav-sub-list {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.nav-sub .nav-sub-list .nav-sub-list-item {
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 100%;
+  border: 1px solid #333333;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 140px;
+  width: 140px;
+  margin-left: -70px;
+  position: absolute;
+  -webkit-transition: all 0.525s ease-out;
+  -moz-transition: all 0.525s ease-out;
+  -o-transition: all 0.525s ease-out;
+  transition: all 0.525s ease-out;
+}
+.nav-sub .nav-sub-list .nav-sub-list-item:hover {
+  -ms-transform: scale(0.925);
+  -webkit-transform: scale(0.925);
+  transform: scale(0.925);
+}
+.nav-sub .nav-sub-list .nav-sub-list-item:active {
+  -ms-transform: scale(1.025);
+  -webkit-transform: scale(1.025);
+  transform: scale(1.025);
+}
+.nav-sub .nav-sub-list .nav-sub-list-item.top-center {
+  left: 50%;
+  top: -140px;
+}
+.nav-sub .nav-sub-list .nav-sub-list-item.top-right {
+  top: -70px;
+  left: 100%;
+}
+.nav-sub .nav-sub-list .nav-sub-list-item.bottom-right {
+  top: 70px;
+  left: 100%;
+}
+.nav-sub .nav-sub-list .nav-sub-list-item.bottom-center {
+  left: 50%;
+  top: 140px;
+}
+.nav-sub .nav-sub-list .nav-sub-list-item.bottom-left {
+  top: 70px;
+  left: 0;
+}
+.nav-sub .nav-sub-list .nav-sub-list-item.top-left {
+  top: -70px;
+  left: 0;
 }
