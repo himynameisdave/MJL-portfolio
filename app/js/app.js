@@ -1,4 +1,4 @@
-//	DEFINE APP
+  //	DEFINE APP
 var app = angular.module('app', ['ui.router']);
 
 
@@ -24,12 +24,12 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
   //   IMPORTANT SHOW/HIDE VARS
   /////////////////////////////////
 
-  $scope.isHome = true; // TODO: make this into 'hide.topNav' instead
-
   $scope.hide = {
     showcase: true,
     topNav: true
   };
+
+  $scope.activePage = getCurrentPage();
 
   /////////////////////////////
   //   BUSINESS LOGIC
@@ -51,13 +51,20 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
 
     window.onscroll = function(e){
 
-      if($scope.hide.showcase){
+      // if($scope.hide.showcase){
         $scope.hide.topNav = checkIsHome();
-        $scope.$apply();
-      }
+        // $scope.$apply();
+      // }
 
+      $scope.activePage = getCurrentPage();
+      $scope.$apply();
+
+      ///////////////////////
+      //    TODO: Turns off scroll functionality for now
+      ///////////////////////
       //throttler
-      if( Math.round(window.scrollY) % 5 === 0 ){
+      // if( Math.round(window.scrollY) % 5 === 0 ){
+      if( false ){
 
         var sections = [{
                           id: 'logo'
@@ -122,13 +129,20 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
 
       }//end throttler
 
-    };
+    };//end window scroll function!!
+
+  };
+
+  $scope.setActivePage = function(page){
+
+      var el = document.getElementById(page),
+          scrollToHere = el.offsetTop;
+
+      TweenLite.to(window, 1.815, {scrollTo:{y:scrollToHere}, ease: Circ.easeInOut});
 
   };
 
   $scope.setupScrollListener();
-
-
 
 }]);
 
@@ -149,4 +163,38 @@ checkIsHome = function(){
       }
     }
 
+},
+getCurrentPage = function(){
+
+  var sections = [{
+                    id: 'home',
+                  },{
+                    id: 'logo'
+                  },{
+                    id: 'print'
+                  },{
+                    id: 'web'
+                  }],
+      currentPage = 'home';
+
+  sections.reverse();
+
+  sections.forEach(function(val, i){
+    var el = document.getElementById( val.id );
+
+    if( el !== null ){
+
+      if( el.getBoundingClientRect().bottom > 0 ){
+        currentPage = val.id;
+      }
+
+    }else{
+      currentPage = 'home';
+    }
+
+  });
+
+  return currentPage;
+
 };
+

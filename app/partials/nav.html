@@ -1,9 +1,15 @@
 <div class="nav-top-section">
-  <button class="nav-top-button nav-top-print"></button>
+  <button   class="nav-top-button nav-top-print"
+            ng-class="{ 'active': activePage === 'print' }"
+            ng-click="setActivePage('print')"></button>
 </div>
 <div class="nav-top-section">
-  <button class="nav-top-button nav-top-logo"></button>
+  <button   class="nav-top-button nav-top-logo"
+            ng-class="{ 'active': activePage === 'logo' }"
+            ng-click="setActivePage('logo')"></button>
 </div>
 <div class="nav-top-section">
-  <button class="nav-top-button nav-top-digital"></button>
+  <button   class="nav-top-button nav-top-web"
+            ng-class="{ 'active': activePage === 'web' }"
+            ng-click="setActivePage('web')"></button>
 </div>

@@ -34,11 +34,16 @@
       display: block;
       height: 100%;
       width: 20px; // 50px - 20px padding on .nav
-
       opacity: 0.35;
+
       &:hover {
         opacity: 0.95;
         .scale(1.125);
+      }
+
+      &.active {
+        opacity: 0.95;
+        .scale(1.15);
       }
 
       &.nav-top-print {
@@ -47,8 +52,8 @@
       &.nav-top-logo {
         background-image: url('../img/icon-logo.svg');
       }
-      &.nav-top-digital {
-        background-image: url('../img/icon-digital.svg');
+      &.nav-top-web {
+        background-image: url('../img/icon-web.svg');
       }
     }
   }
