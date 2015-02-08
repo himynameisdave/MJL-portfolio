@@ -27,45 +27,45 @@
       "projects": [
         {
           "title" : "Personal SD Card Package",
-          "thumb" : "img/thumbs/print"
+          "thumb" : "img/thumbs/print/print-SDcard.png"
         },{
           "title" : "Windsor Salt Package",
-          "thumb" : "img/thumbs/print"
+          "thumb" : "img/thumbs/print/print-salt.png"
         },{
           "title" : "Umbra Annual Report",
-          "thumb" : "img/thumbs/print"
+          "thumb" : "img/thumbs/print/print-umbra.png"
         },{
           "title" : "The Great Pyramid of Giza Book Sleeve",
-          "thumb" : "img/thumbs/print"
+          "thumb" : "img/thumbs/print/print-pyramid.png"
         },{
           "title" : "5Touch Marketing (?)",
-          "thumb" : "img/thumbs/print"
+          "thumb" : "img/thumbs/print/print-5touch.png"
         },{
           "title" : "CN Annual Report",
-          "thumb" : "img/thumbs/print"
+          "thumb" : "img/thumbs/print/print-CN.png"
         }
       ]
     },
     "web" : {
       "projects": [
         {
-          "title" : "",
-          "thumb" : "img/thumbs/web"
+          "title" : "Flowers (?)",
+          "thumb" : "img/thumbs/web/web-flowers.png"
         },{
-          "title" : "",
-          "thumb" : "img/thumbs/web"
+          "title" : "Dropkick",
+          "thumb" : "img/thumbs/web/web-dropkick.png"
         },{
-          "title" : "",
-          "thumb" : "img/thumbs/web"
+          "title" : "5Touch Marketing",
+          "thumb" : "img/thumbs/web/web-5touch.png"
         },{
-          "title" : "",
-          "thumb" : "img/thumbs/web"
+          "title" : "CTV Monitors",
+          "thumb" : "img/thumbs/web/web-CTV.png"
         },{
-          "title" : "",
-          "thumb" : "img/thumbs/web"
+          "title" : "FitnessScan",
+          "thumb" : "img/thumbs/web/web-FSscan.png"
         },{
-          "title" : "",
-          "thumb" : "img/thumbs/web"
+          "title" : "iDRT",
+          "thumb" : "img/thumbs/web/web-iDRT.png"
         }
       ]
     }

@@ -999,7 +999,7 @@ a:hover {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 900;
+  z-index: 800;
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
   -o-transition: all 0.35s;
@@ -1061,7 +1061,7 @@ a:hover {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 800;
+  z-index: 700;
 }
 .main-section {
   height: 25%;
@@ -1073,10 +1073,22 @@ a:hover {
   display: inline-block;
   vertical-align: middle;
   height: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .mjl-module {
   display: inline-block;
   vertical-align: middle;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-image: url('../img/logo-faded.svg');
@@ -1188,14 +1200,15 @@ a:hover {
 }
 .showcase-overlay .showcase {
   background: #fff;
+  box-shadow: 0 0 45px rgba(51, 51, 51, 0.25);
   display: none;
+  margin-left: -250px;
+  margin-top: -140px;
   height: 280px;
   width: 500px;
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-left: -250px;
-  margin-top: -140px;
 }
 .showcase-overlay .showcase.active {
   display: block;
@@ -1213,16 +1226,22 @@ a:hover {
   background-color: rgba(255, 255, 255, 0);
   border: 0;
   height: 100%;
-  width: 40px;
+  width: 45px;
   opacity: 0.25;
   transition: background-size 0.275s ease-in-out;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .showcase-btn.close {
   background-image: url('../img/icon-close.svg');
   position: absolute;
   top: 20px;
   right: 20px;
-  height: 40px;
+  height: 45px;
   z-index: 950;
   transition: transform 0.275s ease-in-out;
 }

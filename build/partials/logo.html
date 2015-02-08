@@ -5,6 +5,7 @@
     <ul class="nav-sub-list">
       <li   class="nav-sub-list-item"
             data-ng-repeat="project in siteData.logo.projects"
+            data-ng-click="hide.showcase = false"
             data-ng-class="{
               'top-center'   : $index==0,
               'top-right'    : $index==1,

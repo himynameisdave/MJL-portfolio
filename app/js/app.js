@@ -51,8 +51,10 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
 
     window.onscroll = function(e){
 
-      $scope.hide.topNav = checkIsHome();
-      $scope.$apply();
+      if($scope.hide.showcase){
+        $scope.hide.topNav = checkIsHome();
+        $scope.$apply();
+      }
 
       //throttler
       if( Math.round(window.scrollY) % 5 === 0 ){
@@ -125,9 +127,6 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
   };
 
   $scope.setupScrollListener();
-
-
-
 
 
 
