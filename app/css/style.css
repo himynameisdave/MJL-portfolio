@@ -1000,6 +1000,15 @@ a:hover {
   top: 0;
   left: 0;
   z-index: 900;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.nav-top.nav-top-invincible {
+  opacity: 0;
+  height: 0;
+  padding: 0;
 }
 .nav-top .nav-top-section {
   height: 100%;
@@ -1042,9 +1051,6 @@ a:hover {
 .nav-top .nav-top-section .nav-top-button.nav-top-digital {
   background-image: url('../img/icon-digital.svg');
 }
-.nav-top .nav-top-section .nav-top-button.nav-top-invincible {
-  opacity: 0;
-}
 .nav-top.nav-invincible {
   opacity: 0;
 }
@@ -1084,7 +1090,7 @@ a:hover {
     * then set the positions & sizes of the logo & sub nav items accordinly
    **/
 }
-.main-section:first-child .mjl-module {
+.mjl-module.module-main {
   background-image: url('../img/logo.svg');
   background-size: contain;
 }
@@ -1164,4 +1170,89 @@ a:hover {
 .nav-sub .nav-sub-list .nav-sub-list-item.top-left {
   top: -70px;
   left: 0;
+}
+.showcase-overlay {
+  background: rgba(237, 28, 36, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.65s ease-in-out, z-index 0.65s;
+  z-index: 900;
+}
+.showcase-overlay.showcase-hidden {
+  opacity: 0;
+  z-index: -100;
+}
+.showcase-overlay .showcase {
+  background: #fff;
+  display: none;
+  height: 280px;
+  width: 500px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -250px;
+  margin-top: -140px;
+}
+.showcase-overlay .showcase.active {
+  display: block;
+}
+.showcase-overlay .showcase.up-next {
+  display: block;
+  -ms-transform: translate(1000px, 10px);
+  -webkit-transform: translate(1000px, 10px);
+  transform: translate(1000px, 10px);
+}
+.showcase-btn {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  border: 0;
+  height: 100%;
+  width: 40px;
+  opacity: 0.25;
+  transition: background-size 0.275s ease-in-out;
+}
+.showcase-btn.close {
+  background-image: url('../img/icon-close.svg');
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 40px;
+  z-index: 950;
+  transition: transform 0.275s ease-in-out;
+}
+.showcase-btn.close:hover {
+  -ms-transform: scale(1.15);
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+}
+.showcase-btn.close:active {
+  -ms-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  transform: scale(0.95);
+}
+.showcase-btn.left {
+  background-image: url('../img/icon-arrow-left.svg');
+  float: left;
+}
+.showcase-btn.left:hover {
+  background-size: 115%;
+}
+.showcase-btn.left:active {
+  background-size: 125%;
+}
+.showcase-btn.right {
+  background-image: url('../img/icon-arrow-right.svg');
+  float: right;
+}
+.showcase-btn.right:hover {
+  background-size: 115%;
+}
+.showcase-btn.right:active {
+  background-size: 125%;
 }

@@ -1,0 +1,59 @@
+////////////////////////////////////
+//        TOP NAV STYLES          //
+////////////////////////////////////
+
+.nav-top {
+  height: 50px;
+  padding: 15px 0;
+  width: 100%;
+
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 900;
+  .trans( all 0.35s );
+  &.nav-top-invincible{
+    opacity: 0;
+    height: 0;
+    padding: 0;
+  }
+
+  .nav-top-section {
+    height: 100%;
+    float: left;
+    width: 33.33332%;
+
+    .nav-top-button {
+      .appearance-none();
+      .mauto;
+      .trans( all 0.35s );
+      background: 0;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: contain;
+      border: 0; padding: 0;
+      display: block;
+      height: 100%;
+      width: 20px; // 50px - 20px padding on .nav
+
+      opacity: 0.35;
+      &:hover {
+        opacity: 0.95;
+        .scale(1.125);
+      }
+
+      &.nav-top-print {
+        background-image: url('../img/icon-print.svg');
+      }
+      &.nav-top-logo {
+        background-image: url('../img/icon-logo.svg');
+      }
+      &.nav-top-digital {
+        background-image: url('../img/icon-digital.svg');
+      }
+    }
+  }
+
+  &.nav-invincible{
+    opacity: 0;
+  }
+}

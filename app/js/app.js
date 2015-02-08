@@ -1,28 +1,6 @@
 //	DEFINE APP
 var app = angular.module('app', ['ui.router']);
 
-app.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
-
-  $urlRouterProvider.otherwise("/");
-
-  /*
-  $stateProvider
-      .state("intro", {
-        url: "/",
-        templateUrl: "partials/intro.html"
-      })
-      .state("what-is-yeoman", {
-        url: "/what-is-yeoman",
-        templateUrl: "partials/what-is-yeoman.html"
-      })
-      .state("installation", {
-        url: "/installation",
-        templateUrl: "partials/installation.html"
-      });
-  */
-
-}]);
-
 
 //	MAIN CONTROLLER
 app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $http) {
@@ -40,6 +18,19 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
       throw data;
     });
 
+
+
+  /////////////////////////////////
+  //   IMPORTANT SHOW/HIDE VARS
+  /////////////////////////////////
+
+  $scope.isHome = true; // TODO: make this into 'hide.topNav' instead
+
+  $scope.hide = {
+    showcase: true,
+    topNav: true
+  };
+
   /////////////////////////////
   //   BUSINESS LOGIC
   /////////////////////////////
@@ -47,7 +38,6 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
   //  get to the top right quick
   // runTheJewels(0.001, 0);
 
-  $scope.isHome = true;
   var delay = 500;//TODO: use this.
 
 
@@ -61,7 +51,7 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
 
     window.onscroll = function(e){
 
-      $scope.isHome = checkIsHome();
+      $scope.hide.topNav = checkIsHome();
       $scope.$apply();
 
       //throttler

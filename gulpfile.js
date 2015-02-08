@@ -103,7 +103,7 @@ gulp.task( 'build', [ 'compile-me', 'css-me', 'annotate-me', 'partials-me','js-m
 //  LESS compile
 gulp.task( 'compile-me', function(){
 
-  return gulp.src('app/css/*.less')
+  return gulp.src('app/css/style.less')
           .pipe( plug.less() )
           .on('error', errorLog)
           .pipe( gulp.dest('app/css/') );

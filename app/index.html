@@ -27,11 +27,21 @@
 </head>
 <body ng-controller="Main">
 
-
-
-	<nav class="nav-top" ng-include="'partials/nav.html'"></nav>
+	<nav class="nav-top" ng-class="{ 'nav-top-invincible': hide.topNav }" ng-include="'partials/nav.html'"></nav>
 
 	<main class="main">
+		<!-- TODO: showcase should be in a partial -->
+		<section 	class="showcase-overlay"
+							ng-class="{ 'showcase-hidden': hide.showcase }">
+			<button class="showcase-btn close"></button>
+			<div class="showcase active">
+				<button class="showcase-btn left"></button>
+
+				<button class="showcase-btn right"></button>
+			</div>
+			<div class="showcase up-next">
+			</div>
+		</section>
 		<section class="main-section" id="home" ng-include="'partials/home.html'"></section>
 		<section class="main-section" id="logo" ng-include="'partials/logo.html'"></section>
 		<section class="main-section" id="print" ng-include="'partials/print.html'"></section>
