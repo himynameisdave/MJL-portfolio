@@ -29,7 +29,7 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
     topNav: true
   };
 
-  $scope.activePage = getCurrentPage();
+  $scope.activePage    = getCurrentPage();
 
   /////////////////////////////
   //   BUSINESS LOGIC
@@ -134,13 +134,21 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
   };
 
   $scope.setActivePage = function(page){
-
       var el = document.getElementById(page),
-          scrollToHere = el.offsetTop;
+        scrollToHere = el.offsetTop;
 
-      TweenLite.to(window, 1.815, {scrollTo:{y:scrollToHere}, ease: Circ.easeInOut});
+    TweenLite.to(window, 1.815, {scrollTo:{y:scrollToHere}, ease: Circ.easeInOut});
+  };
+
+  $scope.showShowcase = function( section, project ){
+    $scope.hide.showcase = false;
+    $scope.hide.topNav = true;
+
+    $scope.activeProject = $scope.siteData[section].projects[project];
+
 
   };
+
 
   $scope.setupScrollListener();
 

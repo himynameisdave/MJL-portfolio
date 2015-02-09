@@ -1216,11 +1216,14 @@ a:hover {
 .showcase-overlay .showcase {
   background: #fff;
   box-shadow: 0 0 45px rgba(51, 51, 51, 0.25);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
   display: none;
-  margin-left: -250px;
-  margin-top: -140px;
-  height: 280px;
-  width: 500px;
+  margin-left: -45%;
+  margin-top: -100px;
+  height: 200px;
+  width: 90%;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -1233,6 +1236,18 @@ a:hover {
   -ms-transform: translate(1000px, 10px);
   -webkit-transform: translate(1000px, 10px);
   transform: translate(1000px, 10px);
+}
+@media screen and (min-width: 425px) {
+  .showcase-overlay .showcase {
+    background-size: cover;
+    height: 260px;
+    width: 450px;
+    margin-left: -225px;
+    margin-top: -130px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
 }
 .showcase-btn {
   background-position: 50% 50%;

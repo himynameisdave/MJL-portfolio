@@ -1,0 +1,12 @@
+<button class="showcase-btn close" ng-click="hide.showcase = true; hide.topNav = false;"></button>
+
+<div  class="showcase"
+      ng-repeat="showcaseItem in activeProject.showcase"
+      ng-class="{
+        'active': $index === 0,
+        'up-next': $index === 1
+      }"
+      style="background-image: url({{showcaseItem.img}});">
+  <button class="showcase-btn left" ng-if="activeProject.showcase.length > 1"></button>
+  <button class="showcase-btn right" ng-if="activeProject.showcase.length > 1"></button>
+</div>
