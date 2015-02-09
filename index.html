@@ -22,17 +22,9 @@
 
 	<main class="main">
 		<!-- TODO: showcase should be in a partial -->
-		<section 	class="showcase-overlay"
-							data-ng-class="{ 'showcase-hidden': hide.showcase }">
-			<button class="showcase-btn close" data-ng-click="hide.showcase = true"></button>
-			<div class="showcase active">
-				<button class="showcase-btn left"></button>
-
-				<button class="showcase-btn right"></button>
-			</div>
-			<div class="showcase up-next">
-			</div>
-		</section>
+		<section  class="showcase-overlay"
+							data-ng-class="{ 'showcase-hidden': hide.showcase }"
+							data-ng-include="'partials/showcase.html'"></section>
 		<section class="main-section" id="home" data-ng-include="'partials/home.html'"></section>
 		<section class="main-section" id="logo" data-ng-include="'partials/logo.html'"></section>
 		<section class="main-section" id="print" data-ng-include="'partials/print.html'"></section>
