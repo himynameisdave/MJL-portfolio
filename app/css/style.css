@@ -98,6 +98,7 @@ figure {
 }
 hr {
   -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -148,6 +149,8 @@ input {
 }
 input[type="checkbox"],
 input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0;
 }
@@ -815,6 +818,7 @@ p {
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   border-radius: 100%;
+  -webkit-background-clip: padding-box;
   background-clip: padding-box;
 }
 blockquote {
@@ -823,10 +827,9 @@ blockquote {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+  -webkit-background-clip: padding-box;
   background-clip: padding-box;
   -webkit-transition: background 0.35s;
-  -moz-transition: background 0.35s;
-  -o-transition: background 0.35s;
   transition: background 0.35s;
   position: relative;
   padding: 0.75em 1.25em;
@@ -849,8 +852,6 @@ blockquote.quotey:before {
   content: '\201C';
   display: block;
   -webkit-transition: left 0.35s ease-in-out;
-  -moz-transition: left 0.35s ease-in-out;
-  -o-transition: left 0.35s ease-in-out;
   transition: left 0.35s ease-in-out;
   position: absolute;
   top: 40%;
@@ -866,8 +867,6 @@ blockquote.quotey:after {
   content: '\201D';
   display: block;
   -webkit-transition: right 0.35s ease-in-out;
-  -moz-transition: right 0.35s ease-in-out;
-  -o-transition: right 0.35s ease-in-out;
   transition: right 0.35s ease-in-out;
   position: absolute;
   top: 75%;
@@ -891,6 +890,8 @@ blockquote.quotey:hover:after {
   vertical-align: middle;
   border: 1px solid #00aacc;
   color: #00aacc;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
   border-radius: 4px;
   margin: 10px auto 0;
   max-width: 100px;
@@ -904,12 +905,12 @@ blockquote.quotey:hover:after {
   -ms-user-select: none;
   user-select: none;
   -webkit-transition: background 0.3s;
-  -moz-transition: background 0.3s;
-  -o-transition: background 0.3s;
   transition: background 0.3s;
 }
 .btn:hover {
   background: #00aacc;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
   border-radius: 6px;
   color: #f2f2f2;
 }
@@ -922,6 +923,8 @@ blockquote.quotey:hover:after {
   vertical-align: middle;
   border: 1px solid #00aacc;
   color: #00aacc;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
   border-radius: 4px;
   margin: 10px auto 0;
   max-width: 100px;
@@ -935,14 +938,14 @@ blockquote.quotey:hover:after {
   -ms-user-select: none;
   user-select: none;
   -webkit-transition: background 0.3s;
-  -moz-transition: background 0.3s;
-  -o-transition: background 0.3s;
   transition: background 0.3s;
   border-color: #ff6666;
   color: #ff6666;
 }
 .btn-alt:hover {
   background: #00aacc;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
   border-radius: 6px;
   color: #f2f2f2;
 }
@@ -952,6 +955,8 @@ blockquote.quotey:hover:after {
 }
 .btn-alt:hover {
   background: #00aacc;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
   border-radius: 6px;
   color: #f2f2f2;
 }
@@ -968,8 +973,6 @@ blockquote.quotey:hover:after {
 }
 a {
   -webkit-transition: color 0.175s;
-  -moz-transition: color 0.175s;
-  -o-transition: color 0.175s;
   transition: color 0.175s;
   color: #00aacc;
   text-decoration: none;
@@ -992,6 +995,36 @@ a:hover {
 .textarea:focus {
   outline: none;
 }
+@font-face {
+  font-family: 'Flama Bold Italic';
+  src: url('../fonts/flama-bold-italic/Flama-BoldItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/flama-bold-italic/Flama-BoldItalic.woff') format('woff'), url('../fonts/flama-bold-italic/Flama-BoldItalic.ttf') format('truetype'), url('../fonts/flama-bold-italic/Flama-BoldItalic.otf') format('opentype'), url('../fonts/flama-bold-italic/Flama-BoldItalic.svg#Flama-BoldItalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Flama Basic Italic';
+  src: url('../fonts/flama-basic-italic/Flama-BasicItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/flama-basic-italic/Flama-BasicItalic.otf') format('opentype'), url('../fonts/flama-basic-italic/Flama-BasicItalic.woff') format('woff'), url('../fonts/flama-basic-italic/Flama-BasicItalic.ttf') format('truetype'), url('../fonts/flama-basic-italic/Flama-BasicItalic.svg#Flama-BasicItalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Flama Medium Italic';
+  src: url('../fonts/flama-medium-italic/Flama-MediumItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/flama-medium-italic/Flama-MediumItalic.otf') format('opentype'), url('../fonts/flama-medium-italic/Flama-MediumItalic.woff') format('woff'), url('../fonts/flama-medium-italic/Flama-MediumItalic.ttf') format('truetype'), url('../fonts/flama-medium-italic/Flama-MediumItalic.svg#Flama-MediumItalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Flama Basic';
+  src: url('../fonts/flama-basic/Flama-Basic.eot?#iefix') format('embedded-opentype'), url('../fonts/flama-basic/Flama-Basic.otf') format('opentype'), url('../fonts/flama-basic/Flama-Basic.woff') format('woff'), url('../fonts/flama-basic/Flama-Basic.ttf') format('truetype'), url('../fonts/flama-basic/Flama-Basic.svg#Flama-Basic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Flama Bold';
+  src: url('../fonts/flama-bold/Flama-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/flama-bold/Flama-Bold.otf') format('opentype'), url('../fonts/flama-bold/Flama-Bold.woff') format('woff'), url('../fonts/flama-bold/Flama-Bold.ttf') format('truetype'), url('../fonts/flama-bold/Flama-Bold.svg#Flama-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 .nav-top {
   height: 50px;
   padding: 15px 0;
@@ -1001,8 +1034,6 @@ a:hover {
   left: 0;
   z-index: 800;
   -webkit-transition: all 0.35s;
-  -moz-transition: all 0.35s;
-  -o-transition: all 0.35s;
   transition: all 0.35s;
 }
 .nav-top.nav-top-invincible {
@@ -1022,12 +1053,11 @@ a:hover {
   margin-left: auto;
   margin-right: auto;
   -webkit-transition: all 0.35s;
-  -moz-transition: all 0.35s;
-  -o-transition: all 0.35s;
   transition: all 0.35s;
   background: 0;
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  -webkit-background-size: contain;
   background-size: contain;
   border: 0;
   padding: 0;
@@ -1097,6 +1127,7 @@ a:hover {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-image: url('../img/logo-faded.svg');
+  -webkit-background-size: 25% 25%;
   background-size: 25%;
   height: 150px;
   width: 243px;
@@ -1109,6 +1140,7 @@ a:hover {
 }
 .mjl-module.module-main {
   background-image: url('../img/logo.svg');
+  -webkit-background-size: contain;
   background-size: contain;
 }
 .section-title {
@@ -1142,37 +1174,15 @@ a:hover {
   user-select: none;
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  -webkit-background-size: cover;
   background-size: cover;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
   border-radius: 100%;
   height: 135px;
   width: 135px;
   margin-left: -67.5px;
   position: absolute;
-}
-.nav-sub .nav-sub-list .nav-sub-list-item::before,
-.nav-sub .nav-sub-list .nav-sub-list-item:before {
-  content: '';
-  border: 1px solid #333333;
-  border-radius: 100%;
-  display: block;
-  height: 100%;
-  width: 100%;
-  -webkit-transition: all 0.525s ease-out;
-  -moz-transition: all 0.525s ease-out;
-  -o-transition: all 0.525s ease-out;
-  transition: all 0.525s ease-out;
-}
-.nav-sub .nav-sub-list .nav-sub-list-item:hover::before,
-.nav-sub .nav-sub-list .nav-sub-list-item:hover:before {
-  -ms-transform: scale(0.975);
-  -webkit-transform: scale(0.975);
-  transform: scale(0.975);
-}
-.nav-sub .nav-sub-list .nav-sub-list-item:active::before,
-.nav-sub .nav-sub-list .nav-sub-list-item:active:before {
-  -ms-transform: scale(0.915);
-  -webkit-transform: scale(0.915);
-  transform: scale(0.915);
 }
 .nav-sub .nav-sub-list .nav-sub-list-item.top-center {
   left: 50%;
@@ -1199,13 +1209,14 @@ a:hover {
   left: 0;
 }
 .showcase-overlay {
-  background: rgba(237, 28, 36, 0.9);
+  background: rgba(240, 240, 240, 0.9);
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
   opacity: 1;
+  -webkit-transition: opacity 0.65s ease-in-out, z-index 0.65s;
   transition: opacity 0.65s ease-in-out, z-index 0.65s;
   z-index: 900;
 }
@@ -1214,11 +1225,13 @@ a:hover {
   z-index: -100;
 }
 .showcase-overlay .showcase {
-  background: #fff;
-  box-shadow: 0 0 45px rgba(51, 51, 51, 0.25);
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: contain;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   display: none;
   margin-left: -45%;
   margin-top: -100px;
@@ -1227,6 +1240,12 @@ a:hover {
   position: absolute;
   left: 50%;
   top: 50%;
+  -webkit-perspective: 800;
+  perspective: 800;
+}
+.showcase-overlay .showcase.show-back .showcase-card {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 .showcase-overlay .showcase.active {
   display: block;
@@ -1239,6 +1258,7 @@ a:hover {
 }
 @media screen and (min-width: 425px) {
   .showcase-overlay .showcase {
+    -webkit-background-size: cover;
     background-size: cover;
     height: 260px;
     width: 450px;
@@ -1249,15 +1269,60 @@ a:hover {
     top: 50%;
   }
 }
+.showcase-card,
+.showcase-front,
+.showcase-back {
+  height: 100%;
+  width: 100%;
+}
+.showcase-card {
+  -webkit-transition: 0.7525s;
+  transition: 0.7525s;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+  -webkit-box-shadow: 0 0 30px rgba(51, 51, 51, 0.25);
+  box-shadow: 0 0 30px rgba(51, 51, 51, 0.25);
+}
+.showcase-front,
+.showcase-back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+}
+.showcase-front {
+  z-index: 2;
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+.showcase-front .showcase-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.showcase-back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  font-family: 'Flama Bold';
+}
 .showcase-btn {
   background-position: 50% 50%;
   background-repeat: no-repeat;
+  -webkit-background-size: 100% 100%;
   background-size: 100%;
   background-color: rgba(255, 255, 255, 0);
   border: 0;
   height: 100%;
   width: 45px;
   opacity: 0.25;
+  -webkit-transition: background-size 0.275s ease-in-out;
   transition: background-size 0.275s ease-in-out;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -1273,6 +1338,7 @@ a:hover {
   right: 20px;
   height: 45px;
   z-index: 950;
+  -webkit-transition: -webkit-transform 0.275s ease-in-out;
   transition: transform 0.275s ease-in-out;
 }
 .showcase-btn.close:hover {
@@ -1290,9 +1356,11 @@ a:hover {
   float: left;
 }
 .showcase-btn.left:hover {
+  -webkit-background-size: 115% 115%;
   background-size: 115%;
 }
 .showcase-btn.left:active {
+  -webkit-background-size: 125% 125%;
   background-size: 125%;
 }
 .showcase-btn.right {
@@ -1300,8 +1368,10 @@ a:hover {
   float: right;
 }
 .showcase-btn.right:hover {
+  -webkit-background-size: 115% 115%;
   background-size: 115%;
 }
 .showcase-btn.right:active {
+  -webkit-background-size: 125% 125%;
   background-size: 125%;
 }

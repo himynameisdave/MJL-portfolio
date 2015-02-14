@@ -2,11 +2,21 @@
 
 <div  class="showcase"
       data-ng-repeat="showcaseItem in activeProject.showcase"
+      data-ng-init="showInfo = false"
+      data-ng-click="showInfo = !showInfo"
       data-ng-class="{
-        'active': $index === 0,
-        'up-next': $index === 1
-      }"
-      style="background-image: url({{showcaseItem.img}});">
+        'active'   : $index === 0,
+        'up-next'  : $index === 1,
+        'show-back': showInfo
+      }">
+    <div class="showcase-card">
+      <div class="showcase-front">
+        <img class="showcase-img" data-ng-src="{{showcaseItem.img}}" alt="showcase item" />
+      </div>
+      <div class="showcase-back">
+        <h1>Poopnose</h1>
+      </div>
+    </div>
   <button class="showcase-btn left" data-ng-if="activeProject.showcase.length > 1"></button>
   <button class="showcase-btn right" data-ng-if="activeProject.showcase.length > 1"></button>
 </div>

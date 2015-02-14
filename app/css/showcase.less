@@ -10,7 +10,7 @@
 
 
 .showcase-overlay {
-  background: @mjlRedShowcase;
+  background: @mjlShowcase;
   position: fixed;
   top: 0; left: 0;
   height: 100%;
@@ -25,11 +25,7 @@
     z-index: -100;
   }
   .showcase{
-    background: #fff;
-    box-shadow: 0 0 45px rgba( 51, 51, 51, 0.25 );
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: contain;
+    .clickable();
     display: none;
     margin-left: -45%;
     margin-top: -100px;
@@ -37,6 +33,12 @@
     width: 90%;//will be set in style
     position: absolute;
     left: 50%; top: 50%;
+    perspective: 800;
+    &.show-back{
+      .showcase-card {
+        transform: rotateY(180deg);
+      }
+    }
     &.active {
       display: block;
     }
@@ -44,7 +46,6 @@
       display: block;
       .translate(1000px, 10px);
     }
-
     @media @breakpoint-small {
       background-size: cover;
       height: 260px;//will be set in style
@@ -58,6 +59,97 @@
   }
 
 }
+
+.showcase-card,
+.showcase-front,
+.showcase-back {
+  height: 100%;
+  width: 100%;
+}
+
+.showcase-card {
+  transition: 0.7525s;
+  transform-style: preserve-3d;
+  position: relative;
+  box-shadow: 0 0 30px rgba( 51, 51, 51, 0.25 );
+}
+
+.showcase-front,
+.showcase-back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+}
+
+.showcase-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+  .showcase-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.showcase-back {
+  transform: rotateY(180deg);
+  font-family: 'Flama Bold';
+}
+
+
+
+// .showcase-container {
+//   height: 100%;
+//   width: 100%;
+//   position: relative;
+//   perspective: 1000;
+//    z-index: 901;
+//   .showcase-card {
+//     height: 100%;
+//     width: 100%;
+//     transform-style: preserve-3d;
+//     transition: all 0.8s ease-in-out;
+//     background: #fff;
+//     box-shadow: 0 0 30px rgba( 51, 51, 51, 0.25 );
+//   }
+//   &:hover {
+//     .showcase-card {
+//       transform: rotateY(180deg);
+//       box-shadow: 0 0 30px rgba( 51, 51, 51, 0.25 );
+//     }
+//   }
+
+// }
+
+// .showcase-front,
+// .showcase-back{
+//   height: 100%;
+//   width: 100%;
+//   position: absolute;
+//   backface-visibility: hidden;
+//   .showcase-img {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     margin-right: -50%;
+//     transform: translate(-50%, -50%);
+//   }
+// }
+
+// .showcase-back{
+//   display: block;
+//   transform: rotateY(180deg);
+//   box-sizing: border-box;
+//   background: #fff;
+//   box-shadow: 0 0 30px rgba( 51, 51, 51, 0.25 );
+//   text-align: center;
+// }
+
+//////
 
 
 .showcase-btn {

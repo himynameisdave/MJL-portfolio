@@ -44,7 +44,7 @@ gulp.task( 'reload-me', function(){
 
   plug.livereload.listen();
   gulp.watch( ['app/css/*.css', 'app/js/*.js', 'app/index.html', 'app/partials/*.html' ], function(){
-    loggit("I've reloaded your page, sir!\n    "+timePlz());
+    loggit("I've reloaded your page, homie!\n    "+timePlz());
   })
   .on('change', plug.livereload.changed);
 });
@@ -106,6 +106,10 @@ gulp.task( 'compile-me', function(){
   return gulp.src('app/css/style.less')
           .pipe( plug.less() )
           .on('error', errorLog)
+          .pipe( plug.autoprefixer({
+                      browsers: supportedBrowsers,
+                      cascade: false
+                    }))
           .pipe( gulp.dest('app/css/') );
 
 });
@@ -175,6 +179,9 @@ gulp.task( 'assets-me', function(){
   //  Favicon move
   gulp.src( 'app/favicon.ico' )
     .pipe( gulp.dest('build/') );
+  //  Fonts move
+  gulp.src( 'app/fonts/**/*' )
+    .pipe( gulp.dest('build/fonts/') );
 
   //  data file move
   gulp.src( 'app/data.json' )
