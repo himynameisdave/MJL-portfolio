@@ -1032,7 +1032,7 @@ a:hover {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 800;
+  z-index: 700;
   -webkit-transition: all 0.35s;
   transition: all 0.35s;
 }
@@ -1097,7 +1097,7 @@ a:hover {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 700;
+  z-index: 500;
 }
 .main-section {
   height: 25%;
@@ -1310,7 +1310,24 @@ a:hover {
 .showcase-back {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
+  text-align: center;
+}
+.showcase-back .showcase-back-heading {
   font-family: 'Flama Bold';
+  font-size: 1.65rem;
+  line-height: 1;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.45rem;
+  margin-bottom: 1rem;
+  width: 95%;
+}
+.showcase-back .showcase-back-blurb {
+  font-family: 'Flama Basic';
+  font-size: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 }
 .showcase-btn {
   background-position: 50% 50%;
@@ -1333,13 +1350,16 @@ a:hover {
 }
 .showcase-btn.close {
   background-image: url('../img/icon-close.svg');
+  -webkit-background-size: contain;
+  background-size: contain;
   position: absolute;
   top: 20px;
   right: 20px;
-  height: 45px;
-  z-index: 950;
+  height: 30px;
+  width: 30px;
   -webkit-transition: -webkit-transform 0.275s ease-in-out;
   transition: transform 0.275s ease-in-out;
+  z-index: 999;
 }
 .showcase-btn.close:hover {
   -ms-transform: scale(1.15);
@@ -1374,4 +1394,25 @@ a:hover {
 .showcase-btn.right:active {
   -webkit-background-size: 125% 125%;
   background-size: 125%;
+}
+.showcase-instruction {
+  display: block;
+  font-family: 'Flama Basic Italic', 'Roboto Italic', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  text-align: center;
+  position: absolute;
+  bottom: 18%;
+  width: 100%;
+  -webkit-transition: all 1.25s ease-in-out;
+  transition: all 1.25s ease-in-out;
+}
+.showcase-instruction.hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
 }

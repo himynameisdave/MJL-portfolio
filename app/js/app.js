@@ -26,7 +26,8 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
 
   $scope.hide = {
     showcase: true,
-    topNav: true
+    topNav: true,
+    showcaseInstruction: true
   };
 
   $scope.activePage    = getCurrentPage();
@@ -145,10 +146,15 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
     $scope.hide.topNav = true;
 
     $scope.activeProject = $scope.siteData[section].projects[project];
-
-
   };
 
+  $scope.closeShowcase = function() {
+    $scope.hide.showcase = true;
+    $scope.hide.topNav = false;
+    if($scope.hide.showcaseInstruction){
+      $scope.hide.showcaseInstruction = false;
+    }
+  };
 
   $scope.setupScrollListener();
 

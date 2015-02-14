@@ -1,5 +1,4 @@
-<button class="showcase-btn close" data-ng-click="hide.showcase = true; hide.topNav = false;"></button>
-
+<button class="showcase-btn close" data-ng-click="closeShowcase()"></button>
 <div  class="showcase"
       data-ng-repeat="showcaseItem in activeProject.showcase"
       data-ng-init="showInfo = false"
@@ -14,9 +13,18 @@
         <img class="showcase-img" data-ng-src="{{showcaseItem.img}}" alt="showcase item" />
       </div>
       <div class="showcase-back">
-        <h1>Poopnose</h1>
+        <h4 class="showcase-back-heading">{{activeProject.title}}</h4>
+        <p class="showcase-back-blurb">
+          {{activeProject.blurb}}
+        </p>
       </div>
     </div>
   <button class="showcase-btn left" data-ng-if="activeProject.showcase.length > 1"></button>
   <button class="showcase-btn right" data-ng-if="activeProject.showcase.length > 1"></button>
+</div>
+<div  class="showcase-instruction"
+      data-ng-class="{
+        'hidden' : !hide.showcaseInstruction
+      }">
+    Click or tap on the card to see more information.
 </div>

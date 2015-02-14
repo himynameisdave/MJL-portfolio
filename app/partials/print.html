@@ -5,7 +5,7 @@
     <ul class="nav-sub-list">
       <li   class="nav-sub-list-item"
             ng-repeat="project in siteData.print.projects"
-            ng-click="hide.showcase = false"
+            ng-click="showShowcase( 'print', $index )"
             ng-class="{
               'top-center'   : $index==0,
               'top-right'    : $index==1,

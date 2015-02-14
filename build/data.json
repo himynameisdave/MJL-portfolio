@@ -3,7 +3,7 @@
     "logo" : {
       "projects": [
         {
-          "title" : "Aquila Private School",
+          "title" : "Aquila Private School Logo",
           "thumb" : "img/thumbs/logos/logo-aquila.png",
           "blurb" : "A logo design for a preppy ass bitch school.",
           "showcase" : [{
@@ -49,7 +49,7 @@
         },{
           "title" : "Flowers (something)",
           "thumb" : "img/thumbs/logos/logo-flowers.png",
-          "blurb" : "Some flowers?",
+          "blurb" : "Some flowers or some shit?",
           "showcase" : [{
                           "img" : "img/showcase/logos/05-flowers-logo.png",
                           "size": {
@@ -75,22 +75,70 @@
       "projects": [
         {
           "title" : "Personal SD Card Package",
-          "thumb" : "img/thumbs/print/print-SDcard.png"
+          "thumb" : "img/thumbs/print/print-SDcard.png",
+          "blurb" : "Ball so hard mafuckas wanna personal SD me!",
+          "showcase" : [{
+                          "img" : "img/thumbs/print/print-SDcard.png",
+                          "size": {
+                            "width"  : "600px",
+                            "height" : "245px"
+                          }
+                        }]
         },{
           "title" : "Windsor Salt Package",
-          "thumb" : "img/thumbs/print/print-salt.png"
+          "thumb" : "img/thumbs/print/print-salt.png",
+          "blurb" : "SALT IN YOUR WOOOOOOOOUNDS!",
+          "showcase" : [{
+                          "img" : "img/thumbs/print/print-salt.png",
+                          "size": {
+                            "width"  : "600px",
+                            "height" : "245px"
+                          }
+                        }]
         },{
           "title" : "Umbra Annual Report",
-          "thumb" : "img/thumbs/print/print-umbra.png"
+          "thumb" : "img/thumbs/print/print-umbra.png",
+          "blurb" : "Ummmmmm brah",
+          "showcase" : [{
+                          "img" : "img/thumbs/print/print-umbra.png",
+                          "size": {
+                            "width"  : "600px",
+                            "height" : "245px"
+                          }
+                        }]
         },{
           "title" : "The Great Pyramid of Giza Book Sleeve",
-          "thumb" : "img/thumbs/print/print-pyramid.png"
+          "thumb" : "img/thumbs/print/print-pyramid.png",
+          "blurb" : "Giza Piza Piza",
+          "showcase" : [{
+                          "img" : "img/thumbs/print/print-pyramid.png",
+                          "size": {
+                            "width"  : "600px",
+                            "height" : "245px"
+                          }
+                        }]
         },{
           "title" : "5Touch Marketing (?)",
-          "thumb" : "img/thumbs/print/print-5touch.png"
+          "thumb" : "img/thumbs/print/print-5touch.png",
+          "blurb" : "5Touches Pedophilia School for the Gifted",
+          "showcase" : [{
+                          "img" : "img/thumbs/print/print-5touch.png",
+                          "size": {
+                            "width"  : "600px",
+                            "height" : "245px"
+                          }
+                        }]
         },{
           "title" : "CN Annual Report",
-          "thumb" : "img/thumbs/print/print-CN.png"
+          "thumb" : "img/thumbs/print/print-CN.png",
+          "blurb" : "CHUGGA CHUGGA CHOO CHOO!",
+          "showcase" : [{
+                          "img" : "img/thumbs/print/print-CN.png",
+                          "size": {
+                            "width"  : "600px",
+                            "height" : "245px"
+                          }
+                        }]
         }
       ]
     },
@@ -98,22 +146,70 @@
       "projects": [
         {
           "title" : "Flowers (?)",
-          "thumb" : "img/thumbs/web/web-flowers.png"
+          "thumb" : "img/thumbs/web/web-flowers.png",
+          "blurb" : "I don't know it's like flowers or some shit.",
+          "showcase" : [{
+                          "img" : "img/thumbs/web/web-flowers.png",
+                          "size": {
+                            "width"  : "600px",
+                            "height" : "245px"
+                          }
+                        }]
         },{
           "title" : "Dropkick",
-          "thumb" : "img/thumbs/web/web-dropkick.png"
+          "thumb" : "img/thumbs/web/web-dropkick.png",
+          "blurb" : "Sexy naked(ish) bitches jumping around getting wet.",
+          "showcase" : [{
+                          "img" : "img/thumbs/web/web-dropkick.png",
+                          "size": {
+                            "width"  : "600px",
+                            "height" : "245px"
+                          }
+                        }]
         },{
           "title" : "5Touch Marketing",
-          "thumb" : "img/thumbs/web/web-5touch.png"
+          "thumb" : "img/thumbs/web/web-5touch.png",
+          "blurb" : "5Touches - We put you first!",
+          "showcase" : [{
+                          "img" : "img/thumbs/web/web-5touch.png",
+                          "size": {
+                            "width"  : "600px",
+                            "height" : "245px"
+                          }
+                        }]
         },{
           "title" : "CTV Monitors",
-          "thumb" : "img/thumbs/web/web-CTV.png"
+          "thumb" : "img/thumbs/web/web-CTV.png",
+          "blurb" : "BELL MEDIA CEASE AND DESIST NOTICE: UNAUTHORIZED REPROFUCTION OF BELL MEDIA PROPERTY CONGOLMERATES ETC WE'RE SUING YOU MIGUEL!",
+          "showcase" : [{
+                          "img" : "img/thumbs/web/web-CTV.png",
+                          "size": {
+                            "width"  : "600px",
+                            "height" : "245px"
+                          }
+                        }]
         },{
           "title" : "FitnessScan",
-          "thumb" : "img/thumbs/web/web-FSscan.png"
+          "thumb" : "img/thumbs/web/web-FSscan.png",
+          "blurb" : "What a failure of a product.",
+          "showcase" : [{
+                          "img" : "img/thumbs/web/web-FSscan.png",
+                          "size": {
+                            "width"  : "600px",
+                            "height" : "245px"
+                          }
+                        }]
         },{
           "title" : "iDRT",
-          "thumb" : "img/thumbs/web/web-iDRT.png"
+          "thumb" : "img/thumbs/web/web-iDRT.png",
+          "blurb" : "Eye Dirt. Like dirt in your eyes.",
+          "showcase" : [{
+                          "img" : "img/thumbs/web/web-iDRT.png",
+                          "size": {
+                            "width"  : "600px",
+                            "height" : "245px"
+                          }
+                        }]
         }
       ]
     }
