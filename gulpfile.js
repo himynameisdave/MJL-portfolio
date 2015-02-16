@@ -283,6 +283,7 @@ timePlz = function(){
 
       //  in case seconds is lower than 10
       if( s < 10 ){ s = '0' + s; }
+      if( m < 10 ){ m = '0' + m; }
 
       return mt + ' ' + dt + ', ' + yr + ' at ' + h + ':' + m + ':' + s;
 

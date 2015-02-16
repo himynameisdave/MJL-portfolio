@@ -25,7 +25,10 @@
 <!-- endbuild -->
 
 </head>
-<body ng-controller="Main">
+<body ng-controller="Main"
+			ng-class="{
+				'no-scroll': !finishedIntroAnim
+			}">
 
 	<nav class="nav-top" ng-class="{ 'nav-top-invincible': hide.topNav }" ng-include="'partials/nav.html'"></nav>
 

@@ -2,7 +2,7 @@
 var app = angular.module('app', ['ui.router']);
 
 //	MAIN CONTROLLER
-app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $http) {
+app.controller('Main', ["$scope", "$state", "$http", '$document', function ($scope, $state, $http, $document) {
 
   ///////////////////////////////
   //   GET DATA FROM MODEL
@@ -35,16 +35,10 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
       web:    false
   };
 
+  $scope.finishedIntroAnim = false;
+
   $scope.activePage    = getCurrentPage();
 
-  /////////////////////////////
-  //   BUSINESS LOGIC
-  /////////////////////////////
-
-  //  get to the top right quick
-  runTheJewels(0.001, 0);
-
-  var delay = 500;//TODO: use this.
 
 
   /////////////////////////////
@@ -163,6 +157,10 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
     var throttle = 400,
         scrollAmountToTrigger = 180;
 
+    //////////////////////////
+    //    DRY so bad
+    ////////////////////////////
+
     if( !$scope.sectionsLoaded.logo ){
       if($scope.sectionPositions.logo.top < scrollAmountToTrigger){
         $scope.sectionsLoaded.logo = true;
@@ -204,6 +202,21 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
 
   };
 
+  $scope.introAnimation = function(){
+    setTimeout(function(){
+
+      var main = document.querySelectorAll('.module-main'),
+          dur  = 1600;
+
+      TweenLite.set(main[0], { scale: 0, rotation: -3200 });
+      TweenLite.to( main[0], (dur/1000), { scale: 1, rotation: 0, ease: Elastic.easeInOut } );
+      setTimeout(function(){
+        $scope.finishedIntroAnim = true;
+        $scope.$apply();
+      }, dur);
+    }, 600);
+  };
+
   $scope.setActivePage = function(page){
       var el = document.getElementById(page),
         scrollToHere = el.offsetTop;
@@ -230,7 +243,19 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
     runTheJewels(time, 0);
   };
 
-  $scope.setupScrollListener();
+  /////////////////////////////
+  //   BUSINESS LOGIC
+  /////////////////////////////
+      ///////////////////////////////////
+      //  TODO: start app here:
+      ///////////////////////////////////
+
+    $document.ready(function(){
+      //  get to the top right quick
+      runTheJewels(0.001, 0);
+      $scope.setupScrollListener();
+      $scope.introAnimation();
+    });
 
 }]);
 

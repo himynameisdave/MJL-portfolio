@@ -1130,6 +1130,9 @@ button {
 .nav-top.nav-invincible {
   opacity: 0;
 }
+.no-scroll {
+  overflow: hidden;
+}
 .main {
   background: #fff;
   height: 400%;
@@ -1212,6 +1215,9 @@ button {
   -webkit-background-size: contain;
   background-size: contain;
   opacity: 1;
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
 }
 .section-title {
   position: absolute;
