@@ -14,7 +14,10 @@
   height: 25%;
   width: 100%;
   text-align: center;
-  // border-bottom: 1px dotted blue;
+  .main-section-partial{
+    height: 100%;
+    width: 100%;
+  }
 
   .vert-center{
     .ib; .fullheight;
@@ -28,11 +31,36 @@
   .user-select(none);
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-image: url('../img/logo-faded.svg');
-  background-size: 25%;
   height: 150px;
   // width: 33.33332%;
   width: 243px;
+  opacity: 0;
+  position: relative;
+
+  .module-logo-button {
+    @module-logo-button-size: 80px;
+    width: @module-logo-button-size;
+    height: @module-logo-button-size;
+    position: absolute;
+    left: 50%; top: 50%;
+    margin-left: -(@module-logo-button-size/2);
+    margin-top: -(@module-logo-button-size/2);
+    border: 0;
+    background-color: transparent;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-image: url('../img/logo-faded.svg');
+    background-size: 92%;
+
+    .trans( background-size 0.285s ease-in-out );
+    &:hover {
+      background-size: 100%;
+    }
+    &:active {
+      background-size: 95%;
+    }
+  }
+
 
   /**
     * TODO MAJOR:
@@ -46,14 +74,11 @@
 .mjl-module.module-main {
   background-image: url('../img/logo.svg');
   background-size: contain;
+  opacity: 1;
 }
 
 .section-title {
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  height: 1px; width: 1px;
-  margin: -1px; padding: 0; border: 0;
+  .visually-hidden();
 }
 
 
@@ -70,6 +95,7 @@
     position: relative;
     .nav-sub-list-item {
       .clickable();
+      -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
       @subSize: 135px;
       background-repeat: no-repeat;
       background-position: 50% 50%;

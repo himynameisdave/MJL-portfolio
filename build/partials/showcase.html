@@ -1,4 +1,4 @@
-<button class="showcase-btn close" data-ng-click="closeShowcase()"></button>
+<button class="showcase-btn close icon icon-close" data-ng-click="closeShowcase()"></button>
 <div  class="showcase"
       data-ng-repeat="showcaseItem in activeProject.showcase"
       data-ng-init="showInfo = false"
@@ -19,8 +19,8 @@
         </p>
       </div>
     </div>
-  <button class="showcase-btn left" data-ng-if="activeProject.showcase.length > 1"></button>
-  <button class="showcase-btn right" data-ng-if="activeProject.showcase.length > 1"></button>
+  <button class="showcase-btn left icon icon-arrow-left" data-ng-if="activeProject.showcase.length > 1"></button>
+  <button class="showcase-btn right icon icon-arrow-right" data-ng-if="activeProject.showcase.length > 1"></button>
 </div>
 <div  class="showcase-instruction"
       data-ng-class="{

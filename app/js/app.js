@@ -1,7 +1,6 @@
   //	DEFINE APP
 var app = angular.module('app', ['ui.router']);
 
-
 //	MAIN CONTROLLER
 app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $http) {
 
@@ -30,6 +29,12 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
     showcaseInstruction: true
   };
 
+  $scope.sectionsLoaded = {
+      logo:   false,
+      print:  false,
+      web:    false
+  };
+
   $scope.activePage    = getCurrentPage();
 
   /////////////////////////////
@@ -37,7 +42,7 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
   /////////////////////////////
 
   //  get to the top right quick
-  // runTheJewels(0.001, 0);
+  runTheJewels(0.001, 0);
 
   var delay = 500;//TODO: use this.
 
@@ -58,13 +63,25 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
       // }
 
       $scope.activePage = getCurrentPage();
+      $scope.sectionPositions = getSectionPositions();
+
+      //  CHECK IF SECTIONS HAVE LOADED/SHOULD BE LOADED
+      if($scope.sectionPositions){
+        //check if positions are all loaded, if so don't call this guy
+        // if( !$scope.sectionsLoaded.logo || !$scope.sectionsLoaded.print || $scope.sectionsLoaded.web ){
+          $scope.loadSections();
+        // }
+      }
       $scope.$apply();
+
+
 
       ///////////////////////
       //    TODO: Turns off scroll functionality for now
       ///////////////////////
       //throttler
       // if( Math.round(window.scrollY) % 5 === 0 ){
+      /*
       if( false ){
 
         var sections = [{
@@ -76,6 +93,10 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
                         }];
 
         //  get position of all of our sections
+
+        //////////////////////////////////////////////////////////////////////
+        //    TODO refactor && make use of the $scope.sectionPositions/getSectionPositions() shit
+        //////////////////////////////////////////////////////////////////////
         sections.forEach(function(val, i){
           //  grab the element itself (?)
           var el   = document.getElementById(val.id);
@@ -130,7 +151,56 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
 
       }//end throttler
 
+      */
+
     };//end window scroll function!!
+
+  };
+
+  $scope.loadSections = function(){
+
+    //  timout to beat the $apply()
+    var throttle = 400,
+        scrollAmountToTrigger = 180;
+
+    if( !$scope.sectionsLoaded.logo ){
+      if($scope.sectionPositions.logo.top < scrollAmountToTrigger){
+        $scope.sectionsLoaded.logo = true;
+
+        setTimeout(function(){
+          var logo = document.getElementById('module-logo'),
+              logoProjects = logo.querySelectorAll('.nav-sub-logos .nav-sub-list-item');
+            animateInProjects(logo, logoProjects);
+        },throttle);
+
+      }
+    }
+
+    if( !$scope.sectionsLoaded.print ){
+      if($scope.sectionPositions.print.top < scrollAmountToTrigger){
+        $scope.sectionsLoaded.print = true;
+
+        setTimeout(function(){
+          var print = document.getElementById('module-print'),
+              printProjects = print.querySelectorAll('.nav-sub-print .nav-sub-list-item');
+            animateInProjects(print, printProjects);
+        },throttle);
+
+      }
+    }
+
+    if( !$scope.sectionsLoaded.web ){
+      if($scope.sectionPositions.web.top < scrollAmountToTrigger){
+        $scope.sectionsLoaded.web = true;
+
+        setTimeout(function(){
+          var web = document.getElementById('module-web'),
+              webProjects = web.querySelectorAll('.nav-sub-web .nav-sub-list-item');
+            animateInProjects(web, webProjects);
+        },throttle);
+
+      }
+    }
 
   };
 
@@ -156,6 +226,10 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
     }
   };
 
+  $scope.goToTop = function(time){
+    runTheJewels(time, 0);
+  };
+
   $scope.setupScrollListener();
 
 }]);
@@ -163,7 +237,7 @@ app.controller('Main', ["$scope", "$state", "$http", function ($scope, $state, $
 
 //  t=time; d=distance;
 var runTheJewels = function(t, d){
-  TweenLite.to(window, t, {scrollTo:{y:d}, ease:Power4.easeOut});
+  TweenLite.to(window, t, {scrollTo:{y:d}, ease:Power3.easeInOut});
 },
 checkIsHome = function(){
 
@@ -210,5 +284,39 @@ getCurrentPage = function(){
 
   return currentPage;
 
+},
+getSectionPositions = function(){
+
+
+  var sectionPositions = {},
+      IDs = [{ id: 'home', },{ id: 'logo' },{ id: 'print' },{ id: 'web' }];
+
+    IDs.forEach(function(val, i){
+      var el = document.getElementById( val.id );
+      if( el !== null ){
+        sectionPositions[val.id] = el.getBoundingClientRect();
+      }
+    });
+
+  return sectionPositions;
+
+},
+animateInProjects = function(section, projects){
+
+  //  quickly scale down all projects
+  for( i = 0; i < projects.length; i++ ){
+    TweenLite.set(projects[i], { scale: 0, rotation: -135 });
+  }
+  TweenLite.to(section, 0.875, { opacity: 1 });
+  for( i = 0; i < projects.length; i++ ){
+    var dur = 1 + ((i+1) * 0.25);
+    TweenLite.to(projects[i], dur, { scale: 1, rotation: 0, ease:Elastic.easeInOut });
+  }
+
 };
+
+
+
+
+
 

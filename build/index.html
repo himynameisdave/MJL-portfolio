@@ -2,11 +2,11 @@
 <html data-ng-app="app" lang="en">
 <head>
 
-	<title>Miguel Lovery | Toronto Based Designer + Photographer</title>
+	<title>Miguel Lovery | Toronto Based Digital Designer</title>
 	<meta charset="UTF-8">
 
 	<meta name="description" content="Portfolio of Toronto-based designer Miguel Lovery">
-	<meta name="keywords" content="design, graphic design, Toronto, Toronto design, portfolio, UI design, print, digital photography, photographer, graphic, user experience, user interface design, designer, for hire, freelance">
+	<meta name="keywords" content="design, graphic design, Toronto, Toronto design, portfolio, UI design, print, digital photography, photographer, graphic, user experience, user interface design, designer, for hire, freelance, digital, Lovery + Lunny, 5Touch Marketing, CTV, Bell Media, TSN, Toronto designer for hire, ">
 
 	<!--Mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,14 +21,27 @@
 	<nav class="nav-top" data-ng-class="{ 'nav-top-invincible': hide.topNav }" data-ng-include="'partials/nav.html'"></nav>
 
 	<main class="main">
-		<!-- TODO: showcase should be in a partial -->
 		<section  class="showcase-overlay"
 							data-ng-class="{ 'showcase-hidden': hide.showcase }"
 							data-ng-include="'partials/showcase.html'"></section>
-		<section class="main-section" id="home" data-ng-include="'partials/home.html'"></section>
-		<section class="main-section" id="logo" data-ng-include="'partials/logo.html'"></section>
-		<section class="main-section" id="print" data-ng-include="'partials/print.html'"></section>
-		<section class="main-section" id="web" data-ng-include="'partials/web.html'"></section>
+		<section 	class="main-section" id="home"
+							data-ng-include="'partials/home.html'"></section>
+
+		<section 	class="main-section" id="logo">
+			<div 	class="main-section-partial"
+						data-ng-include="'partials/logo.html'"
+						data-ng-if="sectionsLoaded.logo"></div>
+		</section>
+		<section 	class="main-section" id="print">
+			<div 	class="main-section-partial"
+						data-ng-include="'partials/print.html'"
+						data-ng-if="sectionsLoaded.print"></div>
+		</section>
+		<section 	class="main-section" id="web">
+			<div 	class="main-section-partial"
+						data-ng-include="'partials/web.html'"
+						data-ng-if="sectionsLoaded.web"></div>
+		</section>
 	</main>
 
 </body>
