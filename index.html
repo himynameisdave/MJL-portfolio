@@ -16,7 +16,10 @@
   <script type="text/javascript" src="js/scripts.js"></script>
 
 </head>
-<body data-ng-controller="Main">
+<body data-ng-controller="Main"
+			data-ng-class="{
+				'no-scroll': !finishedIntroAnim
+			}">
 
 	<nav class="nav-top" data-ng-class="{ 'nav-top-invincible': hide.topNav }" data-ng-include="'partials/nav.html'"></nav>
 
