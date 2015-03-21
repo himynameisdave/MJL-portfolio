@@ -75,8 +75,8 @@ app.controller('Main', ["$scope", "$state", "$http", '$document', function ($sco
       ///////////////////////
       //throttler
       // if( Math.round(window.scrollY) % 5 === 0 ){
-      /*
-      if( false ){
+      
+      if( true ){
 
         var sections = [{
                           id: 'logo'
@@ -145,7 +145,7 @@ app.controller('Main', ["$scope", "$state", "$http", '$document', function ($sco
 
       }//end throttler
 
-      */
+      
 
     };//end window scroll function!!
 
@@ -208,8 +208,8 @@ app.controller('Main', ["$scope", "$state", "$http", '$document', function ($sco
       var main = document.querySelectorAll('.module-main'),
           dur  = 1600;
 
-      TweenLite.set(main[0], { scale: 0, rotation: -3200 });
-      TweenLite.to( main[0], (dur/1000), { scale: 1, rotation: 0, ease: Elastic.easeInOut } );
+      TweenLite.set(main[0], { scale: 0, opacity: 0 });
+      TweenLite.to( main[0], (dur/1000), { scale: 1, opacity: 1, ease: Elastic.easeInOut } );
       setTimeout(function(){
         $scope.finishedIntroAnim = true;
         $scope.$apply();
@@ -229,6 +229,7 @@ app.controller('Main', ["$scope", "$state", "$http", '$document', function ($sco
     $scope.hide.topNav = true;
 
     $scope.activeProject = $scope.siteData[section].projects[project];
+
   };
 
   $scope.closeShowcase = function() {
@@ -241,6 +242,58 @@ app.controller('Main', ["$scope", "$state", "$http", '$document', function ($sco
 
   $scope.goToTop = function(time){
     runTheJewels(time, 0);
+  };
+
+  $scope.boneCity = function( direction ){
+    console.log($scope.activeProject);
+
+    switch( direction ) {
+      case 'back':
+        $scope.activeProject.showcase.forEach( function(val,i){
+          // if it's justNow, set justNow to false and active to true
+          // if it's active, set upNext to true and active to false
+          // if it's upNext, set upNext to false
+
+          if(val.justNow){
+            $scope.activeProject.showcase[i].justNow = false;
+            $scope.activeProject.showcase[i].active = true;
+            console.log( "Changing "+i+"th one's active to true: "+$scope.activeProject.showcase[i] );
+          }else if(val.active){
+            $scope.activeProject.showcase[i].upNext = true;
+            $scope.activeProject.showcase[i].active = false;
+            console.log( "Changing "+i+"th one's upNext to true: "+$scope.activeProject.showcase[i] );
+          }else if(val.upNext){
+            $scope.activeProject.showcase[i].upNext = false;
+            console.log( "Changing "+i+"th one's upNext to false: "+$scope.activeProject.showcase[i] );
+          }
+        });
+        break;
+      case 'next':
+        $scope.activeProject.showcase.forEach( function(val,i){
+          // if it's justNow, set justNow to false
+          // if it's active, set justNow to true and active to false
+          // if it's upNext, set upNext to false and active to true
+
+          if(val.justNow){
+            $scope.activeProject.showcase[i].justNow = false;
+            console.log( "Changing "+i+"th one's justNow to false: "+$scope.activeProject.showcase[i] );
+          }else if(val.active){
+            $scope.activeProject.showcase[i].justNow = true;
+            $scope.activeProject.showcase[i].active = false;
+            console.log( "Changing "+i+"th one's justNow to true: "+$scope.activeProject.showcase[i] );
+          }else if(val.upNext){
+            $scope.activeProject.showcase[i].upNext = false;
+
+            console.log( "Changing "+i+"th one's upNext to false: "+$scope.activeProject.showcase[i] );
+          }
+        });
+        break;
+
+      default:
+        break;
+    }
+
+
   };
 
   /////////////////////////////

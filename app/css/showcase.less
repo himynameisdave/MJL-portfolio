@@ -34,17 +34,23 @@
     position: absolute;
     left: 50%; top: 50%;
     perspective: 1000;
+    .trans( transform 0.45s ease-in-out );
     &.show-back{
       .showcase-card {
         transform: rotateY(180deg);
       }
     }
+    &.just-now {
+      display: block;
+      .translate(-1000px, 0px);
+    }
     &.active {
       display: block;
+      .translate(0px, 0px);
     }
     &.up-next {
       display: block;
-      .translate(1000px, 10px);
+      .translate(1000px, 0px);
     }
     @media @breakpoint-small {
       background-size: cover;
@@ -68,18 +74,18 @@
 }
 
 .showcase-card {
+  box-shadow: 0 0 30px rgba( 51, 51, 51, 0.25 );
+  position: relative;
   transition: 0.7525s;
   transform-style: preserve-3d;
-  position: relative;
-  box-shadow: 0 0 30px rgba( 51, 51, 51, 0.25 );
+  z-index: 500;
 }
 
 .showcase-front,
 .showcase-back {
   backface-visibility: hidden;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   background: #fff;
 }
 
@@ -88,16 +94,19 @@
   transform: rotateY(0deg);
   .showcase-img {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
+    width: 80%;
+    z-index: 940;
   }
 }
 
 .showcase-back {
   transform: rotateY(180deg);
   text-align: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
   .showcase-back-heading {
     font-family: 'Flama Bold';
     font-size: 1.65rem;
@@ -124,8 +133,9 @@
   height: 100%;
   width: 45px;
   opacity: 0.25;
-  transition: background-size 0.275s ease-in-out;
+  transition: transform 0.275s ease-in-out;
   .user-select(none);
+  z-index: 999;
   &.close {
     font-size: 24px;
     position: absolute;
@@ -133,8 +143,6 @@
     right: 20px;
     height: 30px;
     width: 30px;
-    transition: transform 0.275s ease-in-out;
-    z-index: 999;
     &:hover{
       .scale(1.15);
     }
@@ -144,22 +152,26 @@
   }
   &.left{
     font-size: 40px;
-    float: left;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 970;
     &:hover{
-      background-size: 115%;
+      .scale(1.15);
     }
     &:active {
-      background-size: 125%;
+      .scale(0.95);
     }
   }
   &.right{
     font-size: 40px;
-    float: right;
+    position: absolute;
+    top: 0; right: 0;
+    z-index: 970;
     &:hover{
-      background-size: 115%;
+      .scale(1.15);
     }
     &:active {
-      background-size: 125%;
+      .scale(0.95);
     }
   }
 }

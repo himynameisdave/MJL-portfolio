@@ -1130,6 +1130,10 @@ button {
 .nav-top.nav-invincible {
   opacity: 0;
 }
+html,
+body {
+  background: #fff;
+}
 .no-scroll {
   overflow: hidden;
 }
@@ -1214,10 +1218,7 @@ button {
   background-image: url('../img/logo.svg');
   -webkit-background-size: contain;
   background-size: contain;
-  opacity: 1;
-  -ms-transform: scale(0);
-  -webkit-transform: scale(0);
-  transform: scale(0);
+  opacity: 0;
 }
 .section-title {
   position: absolute;
@@ -1319,19 +1320,30 @@ button {
   top: 50%;
   -webkit-perspective: 1000;
   perspective: 1000;
+  -webkit-transition: -webkit-transform 0.45s ease-in-out;
+  transition: transform 0.45s ease-in-out;
 }
 .showcase-overlay .showcase.show-back .showcase-card {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
+.showcase-overlay .showcase.just-now {
+  display: block;
+  -ms-transform: translate(-1000px, 0px);
+  -webkit-transform: translate(-1000px, 0px);
+  transform: translate(-1000px, 0px);
+}
 .showcase-overlay .showcase.active {
   display: block;
+  -ms-transform: translate(0px, 0px);
+  -webkit-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
 }
 .showcase-overlay .showcase.up-next {
   display: block;
-  -ms-transform: translate(1000px, 10px);
-  -webkit-transform: translate(1000px, 10px);
-  transform: translate(1000px, 10px);
+  -ms-transform: translate(1000px, 0px);
+  -webkit-transform: translate(1000px, 0px);
+  transform: translate(1000px, 0px);
 }
 @media screen and (min-width: 425px) {
   .showcase-overlay .showcase {
@@ -1353,13 +1365,14 @@ button {
   width: 100%;
 }
 .showcase-card {
+  -webkit-box-shadow: 0 0 30px rgba(51, 51, 51, 0.25);
+  box-shadow: 0 0 30px rgba(51, 51, 51, 0.25);
+  position: relative;
   -webkit-transition: 0.7525s;
   transition: 0.7525s;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  position: relative;
-  -webkit-box-shadow: 0 0 30px rgba(51, 51, 51, 0.25);
-  box-shadow: 0 0 30px rgba(51, 51, 51, 0.25);
+  z-index: 500;
 }
 .showcase-front,
 .showcase-back {
@@ -1383,11 +1396,15 @@ button {
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  width: 80%;
+  z-index: 940;
 }
 .showcase-back {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
   text-align: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 .showcase-back .showcase-back-heading {
   font-family: 'Flama Bold';
@@ -1416,14 +1433,15 @@ button {
   height: 100%;
   width: 45px;
   opacity: 0.25;
-  -webkit-transition: background-size 0.275s ease-in-out;
-  transition: background-size 0.275s ease-in-out;
+  -webkit-transition: -webkit-transform 0.275s ease-in-out;
+  transition: transform 0.275s ease-in-out;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  z-index: 999;
 }
 .showcase-btn.close {
   font-size: 24px;
@@ -1432,9 +1450,6 @@ button {
   right: 20px;
   height: 30px;
   width: 30px;
-  -webkit-transition: -webkit-transform 0.275s ease-in-out;
-  transition: transform 0.275s ease-in-out;
-  z-index: 999;
 }
 .showcase-btn.close:hover {
   -ms-transform: scale(1.15);
@@ -1448,27 +1463,37 @@ button {
 }
 .showcase-btn.left {
   font-size: 40px;
-  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 970;
 }
 .showcase-btn.left:hover {
-  -webkit-background-size: 115% 115%;
-  background-size: 115%;
+  -ms-transform: scale(1.15);
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
 }
 .showcase-btn.left:active {
-  -webkit-background-size: 125% 125%;
-  background-size: 125%;
+  -ms-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  transform: scale(0.95);
 }
 .showcase-btn.right {
   font-size: 40px;
-  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 970;
 }
 .showcase-btn.right:hover {
-  -webkit-background-size: 115% 115%;
-  background-size: 115%;
+  -ms-transform: scale(1.15);
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
 }
 .showcase-btn.right:active {
-  -webkit-background-size: 125% 125%;
-  background-size: 125%;
+  -ms-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  transform: scale(0.95);
 }
 .showcase-instruction {
   display: block;

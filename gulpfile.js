@@ -96,7 +96,7 @@ gulp.task( 'validate-css', function(){
 ************************************************/
 
 
-gulp.task( 'build', [ 'compile-me', 'css-me', 'annotate-me', 'partials-me','js-me', 'assets-me', 'html-me', 'clean-me' ]);
+gulp.task( 'build', [ 'compile-me', 'css-me', 'annotate-me', 'partials-me', 'js-me', 'assets-me', 'html-me', 'clean-me' ]);
 
 
 //  LESS compile

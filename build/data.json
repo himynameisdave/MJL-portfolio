@@ -8,6 +8,9 @@
           "blurb" : "A logo design for a preppy ass bitch school.",
           "showcase" : [{
                           "img" : "img/showcase/logos/01-aquila-logo.png",
+                          "active": true,
+                          "upNext": false,
+                          "justNow": false,
                           "size": {
                             "width"  : "600px",
                             "height" : "245px"
@@ -19,6 +22,9 @@
           "blurb" : "??????",
           "showcase" : [{
                           "img" : "img/showcase/logos/02-PI-logo.png",
+                          "active": true,
+                          "upNext": false,
+                          "justNow": false,
                           "size": {
                             "width"  : "600px",
                             "height" : "245px"
@@ -30,6 +36,9 @@
           "blurb" : "Logo for part of a branding campaign for 5Touch Marketing.",
           "showcase" : [{
                           "img" : "img/showcase/logos/03-5touch-logo.png",
+                          "active": true,
+                          "upNext": false,
+                          "justNow": false,
                           "size": {
                             "width"  : "600px",
                             "height" : "245px"
@@ -41,6 +50,9 @@
           "blurb" : "Logo for a QR-Scanning fitness application.",
           "showcase" : [{
                           "img" : "img/showcase/logos/04-FS-logo.png",
+                          "active": true,
+                          "upNext": false,
+                          "justNow": false,
                           "size": {
                             "width"  : "600px",
                             "height" : "245px"
@@ -52,6 +64,9 @@
           "blurb" : "Some flowers or some shit?",
           "showcase" : [{
                           "img" : "img/showcase/logos/05-flowers-logo.png",
+                          "active": true,
+                          "upNext": false,
+                          "justNow": false,
                           "size": {
                             "width"  : "600px",
                             "height" : "245px"
@@ -63,6 +78,9 @@
           "blurb" : "Logo for a fictional company called Lovery + Lunny.",
           "showcase" : [{
                           "img" : "img/showcase/logos/06-l+l-logo.png",
+                          "active": true,
+                          "upNext": false,
+                          "justNow": false,
                           "size": {
                             "width"  : "600px",
                             "height" : "245px"
@@ -78,7 +96,46 @@
           "thumb" : "img/thumbs/print/print-SDcard.png",
           "blurb" : "Ball so hard mafuckas wanna personal SD me!",
           "showcase" : [{
-                          "img" : "img/thumbs/print/print-SDcard.png",
+                          "img" : "img/showcase/print/01-SDcard-01.png",
+                          "active": true,
+                          "upNext": false,
+                          "justNow": false,
+                          "size": {
+                            "width"  : "600px",
+                            "height" : "245px"
+                          }
+                        },{
+                          "img" : "img/showcase/print/01-SDcard-02.png",
+                          "active": false,
+                          "upNext": true,
+                          "justNow": false,
+                          "size": {
+                            "width"  : "600px",
+                            "height" : "245px"
+                          }
+                        },{
+                          "img" : "img/showcase/print/01-SDcard-03.png",
+                          "active": false,
+                          "upNext": false,
+                          "justNow": false,
+                          "size": {
+                            "width"  : "600px",
+                            "height" : "245px"
+                          }
+                        },{
+                          "img" : "img/showcase/print/01-SDcard-04.png",
+                          "active": false,
+                          "upNext": false,
+                          "justNow": false,
+                          "size": {
+                            "width"  : "600px",
+                            "height" : "245px"
+                          }
+                        },{
+                          "img" : "img/showcase/print/01-SDcard-05.png",
+                          "active": false,
+                          "upNext": false,
+                          "justNow": true,
                           "size": {
                             "width"  : "600px",
                             "height" : "245px"
@@ -90,6 +147,9 @@
           "blurb" : "SALT IN YOUR WOOOOOOOOUNDS!",
           "showcase" : [{
                           "img" : "img/thumbs/print/print-salt.png",
+                          "active": true,
+                          "upNext": false,
+                          "justNow": false,
                           "size": {
                             "width"  : "600px",
                             "height" : "245px"
@@ -101,6 +161,9 @@
           "blurb" : "Ummmmmm brah",
           "showcase" : [{
                           "img" : "img/thumbs/print/print-umbra.png",
+                          "active": true,
+                          "upNext": false,
+                          "justNow": false,
                           "size": {
                             "width"  : "600px",
                             "height" : "245px"
@@ -112,6 +175,9 @@
           "blurb" : "Giza Piza Piza",
           "showcase" : [{
                           "img" : "img/thumbs/print/print-pyramid.png",
+                          "active": true,
+                          "upNext": false,
+                          "justNow": false,
                           "size": {
                             "width"  : "600px",
                             "height" : "245px"
@@ -123,6 +189,9 @@
           "blurb" : "5Touches Pedophilia School for the Gifted",
           "showcase" : [{
                           "img" : "img/thumbs/print/print-5touch.png",
+                          "active": true,
+                          "upNext": false,
+                          "justNow": false,
                           "size": {
                             "width"  : "600px",
                             "height" : "245px"

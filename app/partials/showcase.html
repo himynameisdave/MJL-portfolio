@@ -2,25 +2,29 @@
 <div  class="showcase"
       ng-repeat="showcaseItem in activeProject.showcase"
       ng-init="showInfo = false"
-      ng-click="showInfo = !showInfo"
       ng-class="{
-        'active'   : $index === 0,
-        'up-next'  : $index === 1,
+        'just-now' : showcaseItem.justNow,
+        'active'   : showcaseItem.active,
+        'up-next'  : showcaseItem.upNext,
         'show-back': showInfo
       }">
     <div class="showcase-card">
-      <div class="showcase-front">
+      <div class="showcase-front" ng-click="showInfo = !showInfo">
         <img class="showcase-img" ng-src="{{showcaseItem.img}}" alt="showcase item" />
+        <button   class="showcase-btn left icon icon-arrow-left"
+                  ng-if="activeProject.showcase.length > 1"
+                  ng-click="boneCity('back');$event.stopPropagation();"></button>
+        <button   class="showcase-btn right icon icon-arrow-right"
+                  ng-if="activeProject.showcase.length > 1"
+                  ng-click="boneCity('next');$event.stopPropagation();"></button>
       </div>
-      <div class="showcase-back">
+      <div class="showcase-back" ng-click="showInfo = !showInfo">
         <h4 class="showcase-back-heading">{{activeProject.title}}</h4>
         <p class="showcase-back-blurb">
           {{activeProject.blurb}}
         </p>
       </div>
     </div>
-  <button class="showcase-btn left icon icon-arrow-left" ng-if="activeProject.showcase.length > 1"></button>
-  <button class="showcase-btn right icon icon-arrow-right" ng-if="activeProject.showcase.length > 1"></button>
 </div>
 <div  class="showcase-instruction"
       ng-class="{
